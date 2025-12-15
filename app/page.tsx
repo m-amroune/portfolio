@@ -23,23 +23,10 @@ export default function Home() {
   const [aboutIndex, setAboutIndex] = useState(0);
 
   // Hero text slides (content only, no dates)
-  const aboutSlides = [
-    {
-      label: null,
-      text:
-        "Continuous learning through personal projects and online certifications, with a strong focus on React, Next.js, modern JavaScript and solid web development fundamentals.",
-    },
-    {
-      label: "OpenClassrooms",
-      text:
-        "Front-end development training focused on responsive design, front-end integration, API consumption and professional-grade projects.",
-    },
-    {
-      label: "FreeCodeCamp",
-      text:
-        "Hands-on learning path with numerous projects covering front-end, back-end and databases, emphasizing rigor and autonomy.",
-    },
-  ];
+ const aboutSlides = [
+   { label: null, text: "Approfondissement continu à travers des projets personnels et des certifications en ligne, avec un focus sur React, Next.js, JavaScript moderne et la consolidation des fondamentaux du développement web.", },
+   { label: "OpenClassrooms", text: "Formation en développement front-end axée sur la conception de sites responsives, l’intégration front-end, la consommation d’API et la réalisation de projets professionnalisants.", },
+   { label: "FreeCodeCamp", text: "Parcours orienté pratique avec de nombreux projets couvrant le front-end, le back-end et les bases de données, dans une logique de rigueur et d’autonomie.", }, ];
 
   return (
     <>

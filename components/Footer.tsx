@@ -40,22 +40,44 @@ export default function Footer() {
               Envoyer un message
             </h3>
 
-            <form className="space-y-4">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              className="space-y-4"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
+              {/* Honeypot field (spam protection) */}
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you’re human:{" "}
+                  <input name="bot-field" />
+                </label>
+              </p>
+
               <input
                 type="text"
+                name="name"
                 placeholder="Nom"
                 className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
+
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
+
               <textarea
+                name="message"
                 placeholder="Votre message…"
                 rows={3}
                 className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
+
               <button
                 type="submit"
                 className="w-full py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
@@ -69,5 +91,6 @@ export default function Footer() {
     </>
   );
 }
+
 
 
