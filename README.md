@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio 
 
-## Getting Started
+Personal portfolio built to showcase selected front-end, back-end, and database projects developed through OpenClassrooms, FreeCodeCamp, and personal practice.
 
-First, run the development server:
+---
+
+## About the Project
+
+### Objective
+
+Build a modern, responsive portfolio application to present projects, technical stack, and learning path in a clear and structured way.
+
+The portfolio focuses on :
+- Clean UI and consistent layout
+- Clear project descriptions
+- Technologies used per project
+- Easy navigation between sections
+
+---
+
+## Projects Highlight
+
+The portfolio presents a selection of projects including:
+
+- **Front-End Applications**  
+  React-based interfaces built with modern tooling (Vite, React Router, component-driven UI).
+
+- **Back-End & APIs**  
+  REST APIs and microservices using Node.js and Express.
+
+- **Databases**  
+  SQL and NoSQL projects using PostgreSQL and MongoDB.
+
+Each project includes:
+- Short description
+- Technologies used
+- Live demo (when available)
+- Source code link
+
+---
+
+## Built With
+
+<!-- Core -->
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+
+<!-- Styling -->
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+
+<!-- Animation & UI -->
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=flat&logo=framer&logoColor=white)
+![Lucide Icons](https://img.shields.io/badge/Lucide-000000?style=flat&logo=lucide&logoColor=white)
+
+<!-- Tooling -->
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+
+---
+
+## Features
+
+- Responsive layout (desktop & mobile)
+- Dedicated projects page with detailed cards
+- Animated components using Framer Motion
+- Reusable UI components
+- Clean separation between pages and components
+
+---
+
+
+
+## Installation
 
 ```bash
+git clone https://github.com/m-amroune/portfolio.git
+cd portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
