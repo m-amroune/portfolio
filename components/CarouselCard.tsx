@@ -40,13 +40,16 @@ export default function CarouselCard({
       viewport={{ once: true }}
     >
       {/* Project preview image */}
-      <Image
-        src={image}
-        alt={title}
-        width={400}
-        height={250}
-        className="w-full h-40 object-cover border-b border-white/10"
-      />
+      <div className="p-3 border-b border-white/10">
+  <Image
+    src={image}
+    alt={title}
+    width={400}
+    height={250}
+    className="w-full h-40 object-contain rounded-lg bg-white/5"
+  />
+</div>
+
 
       <div className="p-4 flex flex-col flex-1">
         {/* Project title */}
@@ -56,7 +59,7 @@ export default function CarouselCard({
 
         {/* Short project description */}
         {description && (
-          <p className="text-[15px] text-white/70 leading-relaxed mb-3 text-center min-h-[72px]">
+          <p className="text-[15px] text-white/70 leading-relaxed mb-1 text-left min-h-[72px]">
             {description}
           </p>
         )}
@@ -66,7 +69,7 @@ export default function CarouselCard({
           <div
   className="
     flex flex-nowrap items-center justify-center gap-2
-    overflow-x-auto pb-1 mb-4
+    overflow-x-auto pb-1 mb-3
     [scrollbar-width:none]
     [&::-webkit-scrollbar]:hidden
   "

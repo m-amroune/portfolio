@@ -32,15 +32,18 @@ export default function ProjectBlock({ project }: { project: Project }) {
       "
     >
       {/* Project logo / preview */}
-      <div className="relative w-full h-40 flex items-center justify-center bg-white/5 border-b border-white/10">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={320}
-          height={200}
-          className="max-h-full max-w-full object-contain opacity-95"
-        />
-      </div>
+      <div className="p-3 border-b border-white/10">
+  <div className="w-full h-40 flex items-center justify-center rounded-lg bg-white/5">
+    <Image
+      src={project.image}
+      alt={project.title}
+      width={320}
+      height={200}
+      className="max-h-full max-w-full object-contain opacity-95"
+    />
+  </div>
+</div>
+
 
       <div className="p-5 flex flex-col flex-1">
         {/* Project title */}

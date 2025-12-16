@@ -22,7 +22,7 @@ const projects = [
     repo: "https://github.com/m-amroune/markdown-previewer",
     image: "/projects/markdown_previewer.png",
     description:
-      "Éditeur Markdown avec aperçu HTML en temps réel (style GitHub-flavored).",
+      "Éditeur Markdown avec aperçu HTML en temps réel.",
     tech: ["HTML", "CSS", "JavaScript", "React", "Vite"],
   },
   {
