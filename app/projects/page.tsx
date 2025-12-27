@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import Navbar from "../../components/Navbar";
 import ProjectBlock from "../../components/ProjectBlock";
+import ContactModal from "../../components/ContactModal";
 
 // Project list displayed on the Projects page
 const projects = [
@@ -21,8 +22,7 @@ const projects = [
     demo: "https://m-a-markdown-previewer.netlify.app/",
     repo: "https://github.com/m-amroune/markdown-previewer",
     image: "/projects/markdown_previewer.png",
-    description:
-      "Éditeur Markdown avec aperçu HTML en temps réel.",
+    description: "Éditeur Markdown avec aperçu HTML en temps réel.",
     tech: ["HTML", "CSS", "JavaScript", "React", "Vite"],
   },
   {
@@ -100,7 +100,7 @@ const projects = [
     repo: "https://github.com/m-amroune/salon-appointment-scheduler",
     image: "/projects/salon_appointment_scheduler.png",
     description:
-      "CLI tool to manage a salon appointment system (services, clients, schedules).",
+      "Outil en ligne de commande permettant de gérer un système de prise de rendez-vous pour un salon (services, clients, plannings).",
     tech: ["PostgreSQL", "SQL", "Linux", "Bash"],
   },
   {
@@ -108,7 +108,7 @@ const projects = [
     repo: "https://github.com/m-amroune/celestial-bodies-database",
     image: "/projects/celestial_bodies_database.png",
     description:
-      "Normalized PostgreSQL database modeling galaxies, stars, planets and moons.",
+      "Base de données PostgreSQL normalisée modélisant des galaxies, étoiles, planètes et satellites.",
     tech: ["PostgreSQL", "SQL", "Linux", "Bash"],
   },
 ];
@@ -117,7 +117,7 @@ export default function Projets() {
   return (
     <>
       <Navbar />
-
+      <ContactModal />
       <main className="min-h-screen px-4 py-20 bg-[#020617]">
         <section className="max-w-6xl mx-auto">
           {/* Page header */}
@@ -128,8 +128,8 @@ export default function Projets() {
 
             <p className="text-sm md:text-base text-slate-300/80 max-w-2xl mx-auto">
               Une sélection de projets front-end, back-end et bases de données,
-              réalisés avec JavaScript, React, Next.js, Node.js, PostgreSQL et MongoDB,
-              issus des parcours OpenClassrooms et FreeCodeCamp.
+              réalisés avec JavaScript, React, Next.js, Node.js, PostgreSQL et
+              MongoDB, issus des parcours OpenClassrooms et FreeCodeCamp.
             </p>
           </header>
 
@@ -165,13 +165,3 @@ export default function Projets() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-

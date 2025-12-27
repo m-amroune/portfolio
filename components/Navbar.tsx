@@ -41,6 +41,7 @@ export default function Navbar() {
           <li>
             {/* Triggers the global contact modal */}
             <button
+              type="button"
               onClick={() => window.dispatchEvent(new Event("open-contact"))}
               className="text-sm font-medium hover:text-blue-300 transition cursor-pointer"
             >
@@ -52,6 +53,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-
-

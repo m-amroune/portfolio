@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import CarouselCard from "../components/CarouselCard";
 import Footer from "../components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 import {
   Code2,
@@ -23,10 +24,20 @@ export default function Home() {
   const [aboutIndex, setAboutIndex] = useState(0);
 
   // Hero text slides (content only, no dates)
- const aboutSlides = [
-   { label: null, text: "Approfondissement continu à travers des projets personnels et des certifications en ligne, avec un focus sur React, Next.js, JavaScript moderne et la consolidation des fondamentaux du développement web.", },
-   { label: "OpenClassrooms", text: "Formation en développement front-end structurée autour de projets complets, couvrant l’intégration d’interfaces responsives, la logique JavaScript, l’utilisation d’API et les bonnes pratiques de structuration du code au travers de projets professionnalisants.", },
-   { label: "FreeCodeCamp", text: "Parcours orienté pratique, structuré autour de nombreux projets en front-end, back-end et bases de données, avec une approche progressive des concepts et des outils.", }, ];
+  const aboutSlides = [
+    {
+      label: null,
+      text: "Approfondissement continu à travers des projets personnels et des certifications en ligne, avec un focus sur React, Next.js, JavaScript moderne et la consolidation des fondamentaux du développement web.",
+    },
+    {
+      label: "OpenClassrooms",
+      text: "Formation en développement front-end structurée autour de projets complets, couvrant l’intégration d’interfaces responsives, la logique JavaScript, l’utilisation d’API et les bonnes pratiques de structuration du code au travers de projets professionnalisants.",
+    },
+    {
+      label: "FreeCodeCamp",
+      text: "Parcours orienté pratique, structuré autour de nombreux projets en front-end, back-end et bases de données, avec une approche progressive des concepts et des outils.",
+    },
+  ];
 
   return (
     <>
@@ -34,99 +45,99 @@ export default function Home() {
 
       <main className="bg-[#0A0F1F] text-white">
         {/* ===================== HERO ===================== */}
-     <section
-  id="accueil"
-  className="relative min-h-[70vh] flex items-center px-6 md:px-12 lg:px-16"
->
-  {/* Background decoration */}
-  <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-150px]" />
-    <div className="absolute w-[450px] h-[450px] bg-indigo-500/20 rounded-full blur-2xl bottom-[-150px] right-[-100px]" />
-  </div>
+        <section
+          id="accueil"
+          className="relative min-h-[70vh] flex items-center px-6 md:px-12 lg:px-16"
+        >
+          {/* Background decoration */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-150px]" />
+            <div className="absolute w-[450px] h-[450px] bg-indigo-500/20 rounded-full blur-2xl bottom-[-150px] right-[-100px]" />
+          </div>
 
-  <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-6 lg:gap-12 max-w-7xl mx-auto">
-    {/* Left column: identity and hero content */}
-    <div className="space-y-6">
-      <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
-        Moustapha Amroune
-      </h1>
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-6 lg:gap-12 max-w-7xl mx-auto">
+            {/* Left column: identity and hero content */}
+            <div className="space-y-6">
+              <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
+                Moustapha Amroune
+              </h1>
 
-      <h2 className="text-blue-400 text-2xl md:text-4xl font-semibold">
-        Développeur{" "}
-        <span className="whitespace-nowrap">Front-End</span> —{" "}
-        <span className="whitespace-nowrap">React · Next.js</span>
-      </h2>
+              <h2 className="text-blue-400 text-2xl md:text-4xl font-semibold">
+                Développeur <span className="whitespace-nowrap">Front-End</span>{" "}
+                — <span className="whitespace-nowrap">React · Next.js</span>
+              </h2>
 
-      {/* Sliding text card */}
-      <div
-        className="
+              {/* Sliding text card */}
+              <div
+                className="
           max-w-lg
           rounded-2xl p-5
           bg-white/5 backdrop-blur-md
           border border-white/10
           shadow-[0_18px_50px_rgba(0,0,0,0.35)]
         "
-      >
-        {aboutSlides[aboutIndex].label ? (
-          <div className="text-white/80 text-base font-semibold mb-2">
-            {aboutSlides[aboutIndex].label}
-          </div>
-        ) : (
-          <div className="mb-4">
-            <span className="inline-block w-10 h-1 rounded-full bg-blue-400/80" />
-          </div>
-        )}
+              >
+                {aboutSlides[aboutIndex].label ? (
+                  <div className="text-white/80 text-base font-semibold mb-2">
+                    {aboutSlides[aboutIndex].label}
+                  </div>
+                ) : (
+                  <div className="mb-4">
+                    <span className="inline-block w-10 h-1 rounded-full bg-blue-400/80" />
+                  </div>
+                )}
 
-        <p className="text-blue-100/90 leading-relaxed">
-          {aboutSlides[aboutIndex].text}
-        </p>
+                <p className="text-blue-100/90 leading-relaxed">
+                  {aboutSlides[aboutIndex].text}
+                </p>
 
-        {/* Slide indicators */}
-        <div className="flex gap-3 mt-4">
-          {aboutSlides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setAboutIndex(i)}
-              aria-label={`Slide ${i + 1}`}
-              className={`h-2.5 w-2.5 rounded-full transition ${
-                i === aboutIndex
-                  ? "bg-white"
-                  : "bg-white/30 hover:bg-white/60"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
+                {/* Slide indicators */}
+                <div className="flex gap-3 mt-4">
+                  {aboutSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setAboutIndex(i)}
+                      aria-label={`Slide ${i + 1}`}
+                      className={`h-2.5 w-2.5 rounded-full transition ${
+                        i === aboutIndex
+                          ? "bg-white"
+                          : "bg-white/30 hover:bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
 
-      {/* Primary actions */}
-      <div className="flex gap-4 mt-6">
-        <Link
-          href="/projects"
-          className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 font-medium transition"
-        >
-          Voir mes projets
-        </Link>
+              {/* Primary actions */}
+              <div className="flex gap-4 mt-6">
+                <Link
+                  href="/projects"
+                  className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 font-medium transition"
+                >
+                  Voir mes projets
+                </Link>
 
-        <button
-          onClick={() =>
-            window.dispatchEvent(new Event("open-contact"))
-          }
-          className="px-6 py-3 rounded-lg border border-blue-500 text-blue-300 hover:bg-blue-900/40 transition font-medium"
-        >
-          Me contacter
-        </button>
-      </div>
-    </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    window.dispatchEvent(new Event("open-contact"))
+                  }
+                  className="px-6 py-3 rounded-lg border border-blue-500 text-blue-300 hover:bg-blue-900/40 transition font-medium"
+                >
+                  Me contacter
+                </button>
+              </div>
+            </div>
 
-    {/* Right column: social / contact cards */}
-    <div className="flex justify-center md:justify-start md:pl-10">
-      <div className="grid grid-cols-2 gap-6 w-full max-w-sm">
-        <a
-          href="https://github.com/m-amroune"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="
+            {/* Right column: social / contact cards */}
+            <div className="flex justify-center md:justify-start md:pl-10">
+              <div className="grid grid-cols-2 gap-6 w-full max-w-sm">
+                <a
+                  href="https://github.com/m-amroune"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="
             rounded-2xl p-8
             bg-white/5 border border-white/10
             backdrop-blur-md
@@ -137,16 +148,16 @@ export default function Home() {
             cursor-pointer
             hover:scale-[1.03]
           "
-        >
-          <Github size={56} className="text-white" />
-        </a>
+                >
+                  <Github size={56} className="text-white" />
+                </a>
 
-        <a
-          href="https://www.linkedin.com/in/moustapha-amroune-839986182/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="
+                <a
+                  href="https://www.linkedin.com/in/moustapha-amroune-839986182/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="
             rounded-2xl p-8
             bg-white/5 border border-white/10
             backdrop-blur-md
@@ -157,16 +168,16 @@ export default function Home() {
             cursor-pointer
             hover:scale-[1.03]
           "
-        >
-          <Linkedin size={56} className="text-white" />
-        </a>
+                >
+                  <Linkedin size={56} className="text-white" />
+                </a>
 
-        <button
-          onClick={() =>
-            window.dispatchEvent(new Event("open-contact"))
-          }
-          aria-label="Contact"
-          className="
+                <button
+                  onClick={() =>
+                    window.dispatchEvent(new Event("open-contact"))
+                  }
+                  aria-label="Contact"
+                  className="
             col-span-2
             rounded-2xl p-8
             bg-white/5 border border-white/10
@@ -178,14 +189,13 @@ export default function Home() {
             cursor-pointer
             hover:scale-[1.03]
           "
-        >
-          <Mail size={64} className="text-white" />
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
+                >
+                  <Mail size={64} className="text-white" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ===================== SKILLS ===================== */}
         <section className="py-16 px-6 bg-[#0D1326] border-t border-white/10">
@@ -273,7 +283,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-
+      <ContactModal />
       <Footer />
     </>
   );
@@ -298,4 +308,3 @@ function SkillCard({
     </div>
   );
 }
-
