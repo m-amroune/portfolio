@@ -145,10 +145,11 @@ export default function Projets() {
                 },
               },
             }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9 items-stretch"
           >
             {projects.map((project) => (
               <motion.div
+                className="h-full"
                 key={project.title}
                 variants={{
                   hidden: { opacity: 0, y: 35 },

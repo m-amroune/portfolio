@@ -28,22 +28,21 @@ export default function ProjectBlock({ project }: { project: Project }) {
         shadow-[0_0_0_1px_rgba(255,255,255,0.08),_0_10px_30px_rgba(15,23,42,0.85)]
         hover:shadow-[0_0_0_1px_rgba(59,130,246,0.4),_0_14px_50px_rgba(59,130,246,0.4)]
         transition-all duration-400
-        flex flex-col
+        flex flex-col h-full
       "
     >
       {/* Project logo / preview */}
       <div className="p-3 border-b border-white/10">
-  <div className="w-full h-40 flex items-center justify-center rounded-lg bg-white/5">
-    <Image
-      src={project.image}
-      alt={project.title}
-      width={320}
-      height={200}
-      className="max-h-full max-w-full object-contain opacity-95"
-    />
-  </div>
-</div>
-
+        <div className="w-full h-40 flex items-center justify-center rounded-lg bg-white/5">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={320}
+            height={200}
+            className="max-h-full max-w-full object-contain opacity-95"
+          />
+        </div>
+      </div>
 
       <div className="p-5 flex flex-col flex-1">
         {/* Project title */}
@@ -67,27 +66,29 @@ export default function ProjectBlock({ project }: { project: Project }) {
 
         {/* Technology stack (horizontal scroll if needed) */}
         {project.tech && project.tech.length > 0 && (
-          <div
-            className="
-              flex flex-nowrap items-center justify-center gap-2
-              overflow-x-auto pb-1 mb-4
-              [scrollbar-width:none]
-              [&::-webkit-scrollbar]:hidden
-            "
-          >
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="
-                  shrink-0 inline-flex items-center justify-center
-                  px-3 py-1.5 rounded-full
-                  bg-white/10 border border-white/15
-                  text-xs text-white/80 leading-none whitespace-nowrap
-                "
-              >
-                {t}
-              </span>
-            ))}
+          <div className="min-h-[44px] mb-4">
+            <div
+              className="
+        flex flex-nowrap items-center justify-center gap-2
+        overflow-x-auto pb-1
+        [scrollbar-width:none]
+        [&::-webkit-scrollbar]:hidden
+      "
+            >
+              {project.tech.map((t) => (
+                <span
+                  key={t}
+                  className="
+            shrink-0 inline-flex items-center justify-center
+            px-3 py-1.5 rounded-full
+            bg-white/10 border border-white/15
+            text-xs text-white/80 leading-none whitespace-nowrap
+          "
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         )}
 
@@ -130,12 +131,3 @@ export default function ProjectBlock({ project }: { project: Project }) {
     </motion.div>
   );
 }
-
-
-
-
-
-
-
-
-

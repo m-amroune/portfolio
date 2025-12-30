@@ -41,15 +41,14 @@ export default function CarouselCard({
     >
       {/* Project preview image */}
       <div className="p-3 border-b border-white/10">
-  <Image
-    src={image}
-    alt={title}
-    width={400}
-    height={250}
-    className="w-full h-40 object-contain rounded-lg bg-white/5"
-  />
-</div>
-
+        <Image
+          src={image}
+          alt={title}
+          width={400}
+          height={250}
+          className="w-full h-40 object-contain rounded-lg bg-white/5"
+        />
+      </div>
 
       <div className="p-4 flex flex-col flex-1">
         {/* Project title */}
@@ -67,14 +66,13 @@ export default function CarouselCard({
         {/* Technology stack */}
         {tech && tech.length > 0 && (
           <div
-  className="
+            className="
     flex flex-nowrap items-center justify-center gap-2
     overflow-x-auto pb-1 mb-3
     [scrollbar-width:none]
     [&::-webkit-scrollbar]:hidden
   "
->
-
+          >
             {tech.map((t) => (
               <span
                 key={t}
