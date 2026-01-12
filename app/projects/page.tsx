@@ -127,9 +127,8 @@ export default function Projets() {
             </h1>
 
             <p className="text-sm md:text-base text-slate-300/80 max-w-2xl mx-auto">
-              Une sélection de projets front-end, back-end et bases de données,
-              réalisés avec JavaScript, React, Next.js, Node.js, PostgreSQL et
-              MongoDB, issus des parcours OpenClassrooms et FreeCodeCamp.
+              Sélection de projets réalisés dans le cadre de mes parcours de
+              formation.
             </p>
           </header>
 

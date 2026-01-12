@@ -50,19 +50,18 @@ export default function ProjectBlock({ project }: { project: Project }) {
           {project.title}
         </h3>
 
-        {/* Short description with line clamp */}
-        {project.description && (
+        <div className="min-h-[72px] mb-3">
           <p
-            className="text-[15px] text-white/70 leading-relaxed text-left mb-3 overflow-hidden"
+            className="text-[15px] text-white/70 leading-relaxed text-left overflow-hidden"
             style={{
               display: "-webkit-box",
               WebkitLineClamp: 3,
               WebkitBoxOrient: "vertical",
             }}
           >
-            {project.description}
+            {project.description ?? ""}
           </p>
-        )}
+        </div>
 
         {/* Technology stack (horizontal scroll if needed) */}
         {project.tech && project.tech.length > 0 && (

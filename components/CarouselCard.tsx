@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 type CarouselProps = {
   title: string;
   image: string;
-  demo: string;
-  repo: string;
+  demo?: string;
+  repo?: string;
   description?: string;
   tech?: string[];
 };
@@ -25,7 +25,6 @@ export default function CarouselCard({
     <motion.div
       className="
         snap-center min-w-[300px] max-w-[300px] sm:min-w-[340px] sm:max-w-[340px]
-
         rounded-2xl overflow-hidden
         bg-gradient-to-b from-white/10 to-white/0 backdrop-blur-md
         border border-white/40
@@ -56,27 +55,27 @@ export default function CarouselCard({
           {title}
         </h3>
 
-        {/* Short project description */}
-        {description && (
-          <p className="text-[15px] text-white/70 leading-relaxed mb-1 text-left min-h-[72px]">
-            {description}
-          </p>
-        )}
-
-        {/* Technology stack */}
-        {tech && tech.length > 0 && (
-          <div
-            className="
-    flex flex-nowrap items-center justify-center gap-2
-    overflow-x-auto pb-1 mb-3
-    [scrollbar-width:none]
-    [&::-webkit-scrollbar]:hidden
-  "
+        {/* Project description (reserved height for layout stability) */}
+        <div className="min-h-[72px] mb-3">
+          <p
+            className="text-[15px] text-white/70 leading-relaxed overflow-hidden"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+            }}
           >
+            {description ?? ""}
+          </p>
+        </div>
+
+        {/* Technology stack (wrap enabled, fixed vertical space) */}
+        {tech && tech.length > 0 && (
+          <div className="min-h-[44px] mb-3 flex flex-wrap items-center justify-center gap-2">
             {tech.map((t) => (
               <span
                 key={t}
-                className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-sm text-white/80 leading-none whitespace-nowrap"
+                className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-sm text-white/80 leading-none"
               >
                 {t}
               </span>
@@ -86,23 +85,27 @@ export default function CarouselCard({
 
         {/* Action buttons */}
         <div className="flex gap-3 mt-auto">
-          <a
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition"
-          >
-            Démo
-          </a>
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition"
+            >
+              Démo
+            </a>
+          )}
 
-          <a
-            href={repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 text-center py-2 bg-gray-800 text-white rounded-md text-sm hover:bg-gray-900 transition"
-          >
-            Code
-          </a>
+          {repo && (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2 bg-gray-800 text-white rounded-md text-sm hover:bg-gray-900 transition"
+            >
+              Code
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

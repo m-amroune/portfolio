@@ -27,15 +27,15 @@ export default function Home() {
   const aboutSlides = [
     {
       label: null,
-      text: "Approfondissement continu à travers des projets personnels et des certifications en ligne, avec un focus sur React, Next.js, JavaScript moderne et la consolidation des fondamentaux du développement web.",
+      text: "J’approfondis le développement web en travaillant sur des projets personnels concrets, en parallèle de certifications en ligne. Mon focus actuel est React, Next.js et le JavaScript moderne, avec une attention particulière portée aux fondamentaux.",
     },
     {
       label: "OpenClassrooms",
-      text: "Formation en développement front-end structurée autour de projets complets, couvrant l’intégration d’interfaces responsives, la logique JavaScript, l’utilisation d’API et les bonnes pratiques de structuration du code au travers de projets professionnalisants.",
+      text: "Formation en développement front-end basée sur la réalisation de projets concrets.J’y ai travaillé l’intégration responsive, la logique JavaScript, l’utilisation d’API et l’organisation du code à travers des applications complètes.",
     },
     {
       label: "FreeCodeCamp",
-      text: "Parcours orienté pratique, structuré autour de nombreux projets en front-end, back-end et bases de données, avec une approche progressive des concepts et des outils.",
+      text: "Parcours centré sur la pratique, avec de nombreux projets en front-end, back-end et bases de données. J’y ai travaillé la mise en œuvre concrète des concepts, du code côté client jusqu’à la gestion des données.",
     },
   ];
 
@@ -247,30 +247,30 @@ export default function Home() {
 
             <div className="overflow-x-auto flex gap-8 snap-x snap-mandatory pb-6 scrollbar-none">
               <CarouselCard
-                title="Random Quote Machine"
-                image="/projects/random_quote_machine.png"
-                demo="https://m-a-random-quote-machine.netlify.app/"
-                repo="https://github.com/m-amroune/random-quote-machine"
-                description="Générateur de citations aléatoires avec bouton de rafraîchissement et partage."
-                tech={["React", "Vite", "JavaScript", "CSS"]}
+                title="Kasa"
+                image="/projects/kasa.png"
+                demo="https://kasa-m-amroune.netlify.app/"
+                repo="https://github.com/m-amroune/kasa"
+                description="Application de location immobilière avec navigation dynamique et composants réutilisables."
+                tech={["React", "React Router", "JavaScript", "CSS"]}
               />
 
               <CarouselCard
-                title="Drum Machine"
-                image="/projects/drum_machine.png"
-                demo="https://m-a-drum-machine.netlify.app/"
-                repo="https://github.com/m-amroune/drum-machine"
-                description="Boîte à rythmes interactive pilotable à la souris et au clavier (audio pads)."
-                tech={["React", "Vite", "JavaScript", "CSS"]}
+                title="Fisheye"
+                image="/projects/fisheye.png"
+                demo="https://fisheye-m-amroune.netlify.app/"
+                repo="https://github.com/m-amroune/Fisheye"
+                description="Plateforme de photographes avec modales, filtres et forte attention à l’accessibilité."
+                tech={["HTML", "Sass", "JavaScript"]}
               />
 
               <CarouselCard
-                title="Markdown Previewer"
-                image="/projects/markdown_previewer.png"
-                demo="https://m-a-markdown-previewer.netlify.app/"
-                repo="https://github.com/m-amroune/markdown-previewer"
-                description="Éditeur Markdown avec aperçu HTML en temps réel."
-                tech={["React", "Vite", "JavaScript", "CSS"]}
+                title="API Exercise Tracker"
+                image="/projects/exercise_tracker.png"
+                demo="/projects"
+                repo="https://github.com/m-amroune/exercice-tracker"
+                description="API permettant de créer des utilisateurs, enregistrer des exercices et consulter l’historique."
+                tech={["Node.js", "Express", "MongoDB", "JavaScript"]}
               />
             </div>
 
