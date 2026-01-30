@@ -8,7 +8,7 @@ Personal portfolio built to showcase selected front-end, back-end, and database 
 
 ### Objective
 
-Build a modern, responsive portfolio application to present projects, technical stack, and learning path in a clear and structured way.
+Build a modern, responsive portfolio application to present projects, technical stack, and learning path.
 
 The portfolio focuses on :
 - Clean UI and consistent layout
