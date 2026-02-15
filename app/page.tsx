@@ -245,32 +245,23 @@ export default function Home() {
           <div className="max-w-6xl mx-auto text-center space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">Mes projets</h2>
 
-            <div className="overflow-x-auto flex gap-8 snap-x snap-mandatory pb-6 scrollbar-none">
+            <div className="overflow-x-auto flex justify-center gap-8 snap-x snap-mandatory pb-6 scrollbar-none">
               <CarouselCard
-                title="Kasa"
-                image="/projects/kasa.png"
-                demo="https://kasa-m-amroune.netlify.app/"
-                repo="https://github.com/m-amroune/kasa"
-                description="Application de location immobilière avec navigation dynamique et composants réutilisables."
-                tech={["React", "React Router", "JavaScript", "CSS"]}
+                title="Admin Dashboard"
+                image="/projects/admin_dashboard.png"
+                demo="https://admin-dashboard-m-amroune.vercel.app/login"
+                repo="https://github.com/m-amroune/admin-dashboard"
+                description="Interface d’administration permettant de gérer des utilisateurs et des commandes avec authentification et opérations CRUD."
+                tech={["Next.js", "TypeScript", "Prisma", "SQLite", "Tailwind"]}
               />
 
               <CarouselCard
-                title="Fisheye"
-                image="/projects/fisheye.png"
-                demo="https://fisheye-m-amroune.netlify.app/"
-                repo="https://github.com/m-amroune/Fisheye"
-                description="Plateforme de photographes avec modales, filtres et forte attention à l’accessibilité."
-                tech={["HTML", "Sass", "JavaScript"]}
-              />
-
-              <CarouselCard
-                title="API Exercise Tracker"
-                image="/projects/exercise_tracker.png"
-                demo="/projects"
-                repo="https://github.com/m-amroune/exercice-tracker"
-                description="API permettant de créer des utilisateurs, enregistrer des exercices et consulter l’historique."
-                tech={["Node.js", "Express", "MongoDB", "JavaScript"]}
+                title="Job Tracker"
+                image="/projects/job_tracker.png"
+                demo="https://m-a-job-tracker.vercel.app/"
+                repo="https://github.com/m-amroune/job-tracker"
+                description="Application de suivi de candidatures avec gestion des statuts, filtres et mise à jour des informations."
+                tech={["Next.js", "TypeScript", "React", "Tailwind"]}
               />
             </div>
 
