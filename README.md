@@ -1,4 +1,4 @@
-# Portfolio 
+# Portfolio
 
 Personal portfolio built to showcase selected front-end, back-end, and database projects developed through OpenClassrooms, FreeCodeCamp, and personal practice.
 
@@ -11,6 +11,7 @@ Personal portfolio built to showcase selected front-end, back-end, and database 
 Build a modern, responsive portfolio application to present projects, technical stack, and learning path.
 
 The portfolio focuses on :
+
 - Clean UI and consistent layout
 - Clear project descriptions
 - Technologies used per project
@@ -20,18 +21,25 @@ The portfolio focuses on :
 
 ## Projects Highlight
 
-The portfolio presents a selection of projects including:
+The portfolio distinguishes between personal applications and structured learning projects.
 
-- **Front-End Applications**  
-  React-based interfaces built with modern tooling (Vite, React Router, component-driven UI).
+### Personal Applications
 
-- **Back-End & APIs**  
-  REST APIs and microservices using Node.js and Express.
+- **Admin Dashboard** — Fullstack administration interface with authentication and CRUD operations
+- **Job Tracker** — Application to manage and track job applications and their status
 
-- **Databases**  
-  SQL and NoSQL projects using PostgreSQL and MongoDB.
+### Learning Projects
+
+Projects developed through OpenClassrooms and FreeCodeCamp covering the core areas of web development:
+
+- Front-end interfaces (responsive integration, component architecture, state management)
+- JavaScript logic and data handling
+- REST APIs and microservices (Node.js, Express)
+- Databases and data modelling (MongoDB, PostgreSQL, SQL)
+- Algorithms and problem solving
 
 Each project includes:
+
 - Short description
 - Technologies used
 - Live demo (when available)
@@ -41,23 +49,23 @@ Each project includes:
 
 ## Built With
 
-<!-- Core -->
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
+![Next.js](https://img.shields.io/static/v1?label=&message=Next.js&color=000000&style=flat&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
 
 <!-- Styling -->
+
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 
 <!-- Animation & UI -->
+
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=flat&logo=framer&logoColor=white)
 ![Lucide Icons](https://img.shields.io/badge/Lucide-000000?style=flat&logo=lucide&logoColor=white)
 
 <!-- Tooling -->
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 
 ---
 
@@ -71,8 +79,6 @@ Each project includes:
 
 ---
 
-
-
 ## Installation
 
 ```bash
@@ -81,3 +87,4 @@ cd portfolio
 npm install
 npm run dev
 
+```
