@@ -261,7 +261,7 @@ export default function Home() {
                 demo="https://m-a-job-tracker.vercel.app/"
                 repo="https://github.com/m-amroune/job-tracker"
                 description="Application de suivi de candidatures avec gestion des statuts, filtres et mise à jour des informations."
-                tech={["Next.js", "TypeScript", "React", "Tailwind"]}
+                tech={["Next.js", "TypeScript", "React"]}
               />
             </div>
 

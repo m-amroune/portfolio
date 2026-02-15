@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 // Props for a project card displayed in the home carousel
 type CarouselProps = {
@@ -21,6 +22,14 @@ export default function CarouselCard({
   description,
   tech,
 }: CarouselProps) {
+  // Path to dedicated project page (only for personal projects)
+  const path =
+    title === "Admin Dashboard"
+      ? "/projects/admin-dashboard"
+      : title === "Job Tracker"
+        ? "/projects/job-tracker"
+        : null;
+
   return (
     <motion.div
       className="
@@ -55,7 +64,7 @@ export default function CarouselCard({
           {title}
         </h3>
 
-        {/* Project description (reserved height for layout stability) */}
+        {/* Project description */}
         <div className="min-h-[72px] mb-3">
           <p
             className="text-[15px] text-white/70 leading-relaxed overflow-hidden"
@@ -69,7 +78,7 @@ export default function CarouselCard({
           </p>
         </div>
 
-        {/* Technology stack (wrap enabled, fixed vertical space) */}
+        {/* Technology stack */}
         {tech && tech.length > 0 && (
           <div className="min-h-[44px] mb-3 flex flex-wrap items-center justify-center gap-2">
             {tech.map((t) => (
@@ -84,28 +93,56 @@ export default function CarouselCard({
         )}
 
         {/* Action buttons */}
-        <div className="flex gap-3 mt-auto">
-          {demo && (
-            <a
-              href={demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 text-center py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition"
+        <div className="mt-auto space-y-3">
+          {path && (
+            <Link
+              href={path}
+              className="
+        block w-full text-center py-2 rounded-md
+        border border-white/30
+        hover:bg-white/10
+        text-sm text-white
+        transition
+      "
             >
-              Démo
-            </a>
+              Présentation
+            </Link>
           )}
 
-          {repo && (
-            <a
-              href={repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 text-center py-2 bg-gray-800 text-white rounded-md text-sm hover:bg-gray-900 transition"
-            >
-              Code
-            </a>
-          )}
+          <div className="flex gap-3">
+            {demo && (
+              <a
+                href={demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+          flex-1 text-center py-2 rounded-md
+          bg-blue-600/85 hover:bg-blue-500
+          text-white text-sm font-medium
+          transition
+        "
+              >
+                Démo
+              </a>
+            )}
+
+            {repo && (
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+          flex-1 text-center py-2 rounded-md
+          border border-white/30
+          hover:bg-white/10
+          text-sm text-white
+          transition
+        "
+              >
+                Code
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 // Project card used on the Projects page grid
 type Project = {
@@ -14,6 +15,13 @@ type Project = {
 };
 
 export default function ProjectBlock({ project }: { project: Project }) {
+  const path =
+    project.title === "Admin Dashboard"
+      ? "/projects/admin-dashboard"
+      : project.title === "Job Tracker"
+        ? "/projects/job-tracker"
+        : null;
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.97 }}
@@ -46,9 +54,17 @@ export default function ProjectBlock({ project }: { project: Project }) {
 
       <div className="p-5 flex flex-col flex-1">
         {/* Project title */}
-        <h3 className="text-lg font-semibold text-white mb-2 text-center">
-          {project.title}
-        </h3>
+        {path ? (
+          <Link href={path} className="block text-center">
+            <h3 className="text-lg font-semibold text-white mb-2 hover:underline">
+              {project.title}
+            </h3>
+          </Link>
+        ) : (
+          <h3 className="text-lg font-semibold text-white mb-2 text-center">
+            {project.title}
+          </h3>
+        )}
 
         <div className="min-h-[72px] mb-3">
           <p
@@ -63,36 +79,41 @@ export default function ProjectBlock({ project }: { project: Project }) {
           </p>
         </div>
 
-        {/* Technology stack (horizontal scroll if needed) */}
+        {/* Technology stack  */}
+
         {project.tech && project.tech.length > 0 && (
-          <div className="min-h-[44px] mb-4">
-            <div
-              className="
-        flex flex-nowrap items-center justify-center gap-2
-        overflow-x-auto pb-1
-        [scrollbar-width:none]
-        [&::-webkit-scrollbar]:hidden
-      "
-            >
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className="
-            shrink-0 inline-flex items-center justify-center
-            px-3 py-1.5 rounded-full
-            bg-white/10 border border-white/15
-            text-xs text-white/80 leading-none whitespace-nowrap
-          "
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+          <div className="mb-4 flex flex-wrap justify-center gap-2">
+            {project.tech.map((t) => (
+              <span
+                key={t}
+                className="
+          px-3 py-1.5 rounded-full
+          bg-white/10 border border-white/15
+          text-xs text-white/80
+        "
+              >
+                {t}
+              </span>
+            ))}
           </div>
         )}
 
         {/* Action buttons */}
-        <div className="flex gap-3 mt-auto">
+        <div className="flex gap-3 mt-auto flex-wrap">
+          {path && (
+            <Link
+              href={path}
+              className="
+                w-full text-center py-2 rounded-md
+                bg-white/10 hover:bg-white/20
+                text-sm text-white
+                transition
+              "
+            >
+              Présentation du projet
+            </Link>
+          )}
+
           {project.demo && (
             <a
               href={project.demo}
@@ -105,7 +126,7 @@ export default function ProjectBlock({ project }: { project: Project }) {
                 transition
               "
             >
-              Démo
+              Demo
             </a>
           )}
 

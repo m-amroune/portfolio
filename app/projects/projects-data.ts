@@ -16,7 +16,7 @@ export const projects = [
     image: "/projects/job_tracker.png",
     description:
       "Application de suivi de candidatures avec gestion des statuts, filtres et mise à jour des informations.",
-    tech: ["Next.js", "TypeScript", "React", "Tailwind"],
+    tech: ["Next.js", "TypeScript", "React"],
     type: "personal",
   },
   {
