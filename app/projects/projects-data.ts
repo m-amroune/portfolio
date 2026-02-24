@@ -20,6 +20,16 @@ export const projects = [
     type: "personal",
   },
   {
+    title: "GitHub Resume Generator",
+    demo: "https://m-a-github-resume-generator.vercel.app/",
+    repo: "https://github.com/m-amroune/github-resume-generator",
+    image: "/projects/github_resume_generator.png",
+    description:
+      "Application générant une page type CV à partir d’un profil GitHub public, avec sélection des repositories et gestion des erreurs API.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind"],
+    type: "personal",
+  },
+  {
     title: "Kasa",
     demo: "https://kasa-m-amroune.netlify.app/",
     repo: "https://github.com/m-amroune/kasa",

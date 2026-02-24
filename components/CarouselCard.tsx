@@ -28,7 +28,9 @@ export default function CarouselCard({
       ? "/projects/admin-dashboard"
       : title === "Job Tracker"
         ? "/projects/job-tracker"
-        : null;
+        : title === "GitHub Resume Generator"
+          ? "/projects/github-resume-generator"
+          : null;
 
   return (
     <motion.div

@@ -263,6 +263,14 @@ export default function Home() {
                 description="Application de suivi de candidatures avec gestion des statuts, filtres et mise à jour des informations."
                 tech={["Next.js", "TypeScript", "React"]}
               />
+              <CarouselCard
+                title="GitHub Resume Generator"
+                image="/projects/github_resume_generator.png"
+                demo="https://m-a-github-resume-generator.vercel.app/"
+                repo="https://github.com/m-amroune/github-resume-generator"
+                description="Génération d’un CV à partir d’un profil GitHub public avec sélection des repositories et gestion des erreurs API."
+                tech={["Next.js", "TypeScript", "React", "Tailwind"]}
+              />
             </div>
 
             <Link

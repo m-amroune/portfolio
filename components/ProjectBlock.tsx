@@ -20,7 +20,9 @@ export default function ProjectBlock({ project }: { project: Project }) {
       ? "/projects/admin-dashboard"
       : project.title === "Job Tracker"
         ? "/projects/job-tracker"
-        : null;
+        : project.title === "GitHub Resume Generator"
+          ? "/projects/github-resume-generator"
+          : null;
 
   return (
     <motion.div
