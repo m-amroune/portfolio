@@ -64,7 +64,7 @@ export default function Home() {
 
               <h2 className="text-blue-400 text-2xl md:text-4xl font-semibold">
                 Développeur <span className="whitespace-nowrap">Front-End</span>{" "}
-                — <span className="whitespace-nowrap">React · Next.js</span>
+                <span className="whitespace-nowrap">React · Next.js</span>
               </h2>
 
               {/* Sliding text card */}
@@ -212,7 +212,7 @@ export default function Home() {
             <SkillCard
               icon={<Code2 size={28} className="text-blue-400" />}
               title="Langages"
-              text="JavaScript, TypeScript, HTML, CSS, SQL"
+              text="JavaScript, TypeScript, Python, HTML, CSS, SQL"
             />
             <SkillCard
               icon={<Layers size={28} className="text-indigo-400" />}
