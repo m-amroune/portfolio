@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import Navbar from "../components/Navbar";
-import CarouselCard from "../components/CarouselCard";
+import HomeProjectCard from "../components/HomeProjectCard";
 import Footer from "../components/Footer";
 import ContactModal from "@/components/ContactModal";
 
@@ -39,6 +39,37 @@ export default function Home() {
     },
   ];
 
+  // Projects displayed on the home page
+  const projects = [
+    {
+      title: "Admin Dashboard",
+      image: "/projects/admin_dashboard.png",
+      demo: "https://admin-dashboard-m-amroune.vercel.app/login",
+      repo: "https://github.com/m-amroune/admin-dashboard",
+      description:
+        "Interface d’administration permettant de gérer des utilisateurs et des commandes avec authentification et opérations CRUD.",
+      tech: ["Next.js", "TypeScript", "Prisma", "SQLite", "Tailwind"],
+    },
+    {
+      title: "Job Tracker",
+      image: "/projects/job_tracker.png",
+      demo: "https://m-a-job-tracker.vercel.app/",
+      repo: "https://github.com/m-amroune/job-tracker",
+      description:
+        "Application de suivi de candidatures avec gestion des statuts, filtres et mise à jour des informations.",
+      tech: ["Next.js", "TypeScript", "React"],
+    },
+    {
+      title: "GitHub Resume Generator",
+      image: "/projects/github_resume_generator.png",
+      demo: "https://m-a-github-resume-generator.vercel.app/",
+      repo: "https://github.com/m-amroune/github-resume-generator",
+      description:
+        "Génération d’un CV à partir d’un profil GitHub public avec sélection des repositories et gestion des erreurs API.",
+      tech: ["Next.js", "TypeScript", "React", "Tailwind"],
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -70,12 +101,12 @@ export default function Home() {
               {/* Sliding text card */}
               <div
                 className="
-          max-w-lg
-          rounded-2xl p-5
-          bg-white/5 backdrop-blur-md
-          border border-white/10
-          shadow-[0_18px_50px_rgba(0,0,0,0.35)]
-        "
+                  max-w-lg
+                  rounded-2xl p-5
+                  bg-white/5 backdrop-blur-md
+                  border border-white/10
+                  shadow-[0_18px_50px_rgba(0,0,0,0.35)]
+                "
               >
                 {aboutSlides[aboutIndex].label ? (
                   <div className="text-white/80 text-base font-semibold mb-2">
@@ -138,16 +169,16 @@ export default function Home() {
                   rel="noopener noreferrer"
                   aria-label="GitHub"
                   className="
-            rounded-2xl p-8
-            bg-white/5 border border-white/10
-            backdrop-blur-md
-            shadow-[0_20px_45px_rgba(0,0,0,0.55)]
-            hover:bg-white/10 hover:border-white/20
-            transition
-            flex items-center justify-center
-            cursor-pointer
-            hover:scale-[1.03]
-          "
+                    rounded-2xl p-8
+                    bg-white/5 border border-white/10
+                    backdrop-blur-md
+                    shadow-[0_20px_45px_rgba(0,0,0,0.55)]
+                    hover:bg-white/10 hover:border-white/20
+                    transition
+                    flex items-center justify-center
+                    cursor-pointer
+                    hover:scale-[1.03]
+                  "
                 >
                   <Github size={56} className="text-white" />
                 </a>
@@ -158,16 +189,16 @@ export default function Home() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="
-            rounded-2xl p-8
-            bg-white/5 border border-white/10
-            backdrop-blur-md
-            shadow-[0_20px_45px_rgba(0,0,0,0.55)]
-            hover:bg-white/10 hover:border-white/20
-            transition
-            flex items-center justify-center
-            cursor-pointer
-            hover:scale-[1.03]
-          "
+                    rounded-2xl p-8
+                    bg-white/5 border border-white/10
+                    backdrop-blur-md
+                    shadow-[0_20px_45px_rgba(0,0,0,0.55)]
+                    hover:bg-white/10 hover:border-white/20
+                    transition
+                    flex items-center justify-center
+                    cursor-pointer
+                    hover:scale-[1.03]
+                  "
                 >
                   <Linkedin size={56} className="text-white" />
                 </a>
@@ -178,17 +209,17 @@ export default function Home() {
                   }
                   aria-label="Contact"
                   className="
-            col-span-2
-            rounded-2xl p-8
-            bg-white/5 border border-white/10
-            backdrop-blur-md
-            shadow-[0_20px_45px_rgba(0,0,0,0.55)]
-            hover:bg-white/10 hover:border-white/20
-            transition
-            flex items-center justify-center
-            cursor-pointer
-            hover:scale-[1.03]
-          "
+                    col-span-2
+                    rounded-2xl p-8
+                    bg-white/5 border border-white/10
+                    backdrop-blur-md
+                    shadow-[0_20px_45px_rgba(0,0,0,0.55)]
+                    hover:bg-white/10 hover:border-white/20
+                    transition
+                    flex items-center justify-center
+                    cursor-pointer
+                    hover:scale-[1.03]
+                  "
                 >
                   <Mail size={64} className="text-white" />
                 </button>
@@ -212,7 +243,7 @@ export default function Home() {
             <SkillCard
               icon={<Code2 size={28} className="text-blue-400" />}
               title="Langages"
-              text="JavaScript, TypeScript, Python, HTML, CSS, SQL"
+              text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
             />
             <SkillCard
               icon={<Layers size={28} className="text-indigo-400" />}
@@ -240,48 +271,34 @@ export default function Home() {
         {/* ===================== PROJECTS ===================== */}
         <section
           id="projets"
-          className="px-6 py-16 bg-[#0B0E1A] text-white border-t border-white/10"
+          className="px-6 py-20 bg-[#0B0E1A] text-white border-t border-white/10"
         >
-          <div className="max-w-6xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Mes projets</h2>
-
-            <div className="overflow-x-auto flex justify-center gap-8 snap-x snap-mandatory pb-6 scrollbar-none">
-              <CarouselCard
-                title="Admin Dashboard"
-                image="/projects/admin_dashboard.png"
-                demo="https://admin-dashboard-m-amroune.vercel.app/login"
-                repo="https://github.com/m-amroune/admin-dashboard"
-                description="Interface d’administration permettant de gérer des utilisateurs et des commandes avec authentification et opérations CRUD."
-                tech={["Next.js", "TypeScript", "Prisma", "SQLite", "Tailwind"]}
-              />
-
-              <CarouselCard
-                title="Job Tracker"
-                image="/projects/job_tracker.png"
-                demo="https://m-a-job-tracker.vercel.app/"
-                repo="https://github.com/m-amroune/job-tracker"
-                description="Application de suivi de candidatures avec gestion des statuts, filtres et mise à jour des informations."
-                tech={["Next.js", "TypeScript", "React"]}
-              />
-              <CarouselCard
-                title="GitHub Resume Generator"
-                image="/projects/github_resume_generator.png"
-                demo="https://m-a-github-resume-generator.vercel.app/"
-                repo="https://github.com/m-amroune/github-resume-generator"
-                description="Génération d’un CV à partir d’un profil GitHub public avec sélection des repositories et gestion des erreurs API."
-                tech={["Next.js", "TypeScript", "React", "Tailwind"]}
-              />
+          <div className="max-w-5xl mx-auto space-y-10">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold">Mes projets</h2>
             </div>
 
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600/80 hover:bg-blue-700 transition border border-white/10 shadow-md hover:shadow-blue-900/30"
-            >
-              Voir tous les projets →
-            </Link>
+            <div className="grid gap-5 lg:grid-cols-[0.95fr_1.15fr]">
+              <HomeProjectCard {...projects[0]} variant="tall" />
+
+              <div className="grid gap-5">
+                <HomeProjectCard {...projects[1]} variant="wide" />
+                <HomeProjectCard {...projects[2]} variant="wide" />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600/80 hover:bg-blue-700 transition border border-white/10 shadow-md hover:shadow-blue-900/30"
+              >
+                Voir tous les projets →
+              </Link>
+            </div>
           </div>
         </section>
       </main>
+
       <ContactModal />
       <Footer />
     </>
