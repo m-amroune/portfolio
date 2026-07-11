@@ -27,15 +27,15 @@ export default function Home() {
   const aboutSlides = [
     {
       label: null,
-      text: "J’approfondis le développement web en travaillant sur des projets personnels concrets, en parallèle de certifications en ligne. Mon focus actuel est React, Next.js et le JavaScript moderne, avec une attention particulière portée aux fondamentaux.",
+      text: "J’approfondis ma pratique du développement web en travaillant sur des projets personnels, en parallèle de certifications en ligne. Mon axe principal est React, Next.js et TypeScript, avec un travail complémentaire sur le back-end et les bases de données.",
     },
     {
       label: "OpenClassrooms",
-      text: "Formation en développement front-end basée sur la réalisation de projets concrets.J’y ai travaillé l’intégration responsive, la logique JavaScript, l’utilisation d’API et l’organisation du code à travers des applications complètes.",
+      text: "J’ai suivi le parcours Front-End d’OpenClassrooms, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
     },
     {
       label: "FreeCodeCamp",
-      text: "Parcours centré sur la pratique, avec de nombreux projets en front-end, back-end et bases de données. J’y ai travaillé la mise en œuvre concrète des concepts, du code côté client jusqu’à la gestion des données.",
+      text: "Avec FreeCodeCamp, j’ai complété ma pratique sur JavaScript, React, le back-end et les bases de données. Ce parcours m’a aidé à relier le front-end à la logique serveur et à la gestion des données.",
     },
   ];
 

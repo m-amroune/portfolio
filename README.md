@@ -1,8 +1,14 @@
-# Portfolio – Moustapha Amroune
+# Portfolio - Moustapha Amroune
 
 Personal portfolio built with Next.js, React and TypeScript.
 
 This project presents my developer profile, technical skills, and a selection of personal and training projects.
+
+Live site: https://m-amroune-porfolio.vercel.app/
+
+<p align="center">
+  <img src="./assets/portfolio-preview.png" alt="Portfolio preview" width="900" />
+</p>
 
 ---
 
@@ -24,9 +30,9 @@ The interface is built with a component-based structure and a responsive layout.
 
 ### Personal Applications
 
-- **Admin Dashboard** - Administration interface with authentication, user management, orders and CRUD operations
-- **Job Tracker** - Application to track job applications, statuses and related information
-- **GitHub Resume Generator** - Application generating a resume-style page from a public GitHub profile
+- **Admin Dashboard**: administration interface with authentication, user management, orders and CRUD operations
+- **Job Tracker**: application to track job applications, statuses and related information
+- **GitHub Resume Generator**: application generating a resume-style page from a public GitHub profile
 
 ### Training Projects
 
@@ -72,3 +78,12 @@ Each project page can include:
 - API route for contact form submission
 
 ---
+
+## Local Development
+
+```bash
+git clone https://github.com/m-amroune/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
