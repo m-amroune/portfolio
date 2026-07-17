@@ -95,7 +95,9 @@ export default function Home() {
 
               <h2 className="text-blue-400 text-2xl md:text-4xl font-semibold">
                 Développeur <span className="whitespace-nowrap">Front-End</span>{" "}
-                <span className="whitespace-nowrap">React · Next.js</span>
+                <span className="whitespace-nowrap">
+                  React · Next.js · TypeScript
+                </span>
               </h2>
 
               {/* Sliding text card */}
