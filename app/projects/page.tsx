@@ -16,7 +16,7 @@ export default function Projets() {
     <>
       <Navbar />
       <ContactModal />
-      <main className="min-h-screen px-4 py-20 bg-[#020617]">
+      <main className="min-h-screen px-4 py-20 bg-[#0A0F1F]">
         <section className="max-w-6xl mx-auto">
           {/* Page header */}
           <header className="text-center mb-16">
@@ -47,7 +47,7 @@ export default function Projets() {
                 },
               },
             }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9 items-stretch mb-20"
+            className="grid grid-cols-1 gap-0 mb-20"
           >
             {personalProjects.map((project) => (
               <motion.div
