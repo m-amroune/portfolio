@@ -34,12 +34,12 @@ export default function ProjectBlock({ project }: { project: Project }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45 }}
-        className="group border-b border-white/20 py-14"
+        className="group border-b border-white/20 py-10 md:py-14"
       >
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Project preview */}
           <div className={reverseLayout ? "lg:order-2" : ""}>
-           <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/15 bg-white/[0.05] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-blue-400/70 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.45),_0_0_28px_rgba(59,130,246,0.35),_0_20px_50px_rgba(0,0,0,0.3)]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/15 bg-white/[0.05] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-blue-400/70 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.45),_0_0_28px_rgba(59,130,246,0.35),_0_20px_50px_rgba(0,0,0,0.3)]">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -54,7 +54,7 @@ export default function ProjectBlock({ project }: { project: Project }) {
 
           {/* Project content */}
           <div className={`text-left ${reverseLayout ? "lg:order-1" : ""}`}>
-            <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl">
+            <h3 className="mb-4 text-center text-2xl font-bold text-white md:text-3xl">
               {project.title}
             </h3>
 
@@ -114,110 +114,82 @@ export default function ProjectBlock({ project }: { project: Project }) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.97 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+    <motion.article
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.45 }}
-      className="
-        group relative rounded-2xl overflow-hidden
-        bg-gradient-to-b from-white/10 to-white/0 backdrop-blur-md
-        border border-white/40
-        hover:border-blue-400/70
-        shadow-[0_0_0_1px_rgba(255,255,255,0.08),_0_10px_30px_rgba(15,23,42,0.85)]
-        hover:shadow-[0_0_0_1px_rgba(59,130,246,0.4),_0_14px_50px_rgba(59,130,246,0.4)]
-        transition-all duration-400
-        flex flex-col h-full
-      "
+      transition={{ duration: 0.4 }}
+      className="group flex h-full flex-col"
     >
-      {/* Project logo / preview */}
-      <div className="p-3 border-b border-white/10">
-        <div className="w-full h-40 flex items-center justify-center rounded-lg bg-white/5">
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={320}
-            height={200}
-            className="max-h-full max-w-full object-contain opacity-95"
-          />
-        </div>
+      {/* Project preview */}
+      <div
+        className="
+    relative h-52 overflow-hidden rounded-2xl
+    border border-white/10 bg-white/[0.04] p-2
+    shadow-[0_16px_40px_rgba(0,0,0,0.25)]
+    transition-all duration-300
+    hover:border-blue-400/60
+    hover:shadow-[0_0_24px_rgba(59,130,246,0.25)]
+  "
+      >
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={640}
+          height={400}
+          className="
+      h-full w-full rounded-xl object-contain
+      brightness-90 contrast-105
+      transition duration-500
+      group-hover:scale-[1.01] group-hover:brightness-100
+    "
+        />
+
+        <div className="pointer-events-none absolute inset-0 bg-[#020617]/15" />
       </div>
 
-      <div className="p-5 flex flex-col flex-1">
-        {/* Project title */}
-        {path ? (
-          <Link href={path} className="block text-center">
-            <h3 className="text-lg font-semibold text-white mb-2 hover:underline">
-              {project.title}
-            </h3>
-          </Link>
-        ) : (
-          <h3 className="text-lg font-semibold text-white mb-2 text-center">
-            {project.title}
-          </h3>
-        )}
+      {/* Project content */}
+      <div className="flex flex-1 flex-col pt-5 text-center">
+        <h3 className="mb-2 text-xl font-semibold text-white">
+          {project.title}
+        </h3>
 
-        <div className="min-h-[72px] mb-3">
-          <p
-            className="text-[15px] text-white/70 leading-relaxed text-left overflow-hidden"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-            }}
-          >
-            {project.description ?? ""}
-          </p>
-        </div>
+        <p className="mb-4 text-sm leading-relaxed text-white/65">
+          {project.description ?? ""}
+        </p>
 
-        {/* Technology stack  */}
-
+        {/* Technology stack */}
         {project.tech && project.tech.length > 0 && (
-          <div className="mb-4 flex flex-wrap justify-center gap-2">
-            {project.tech.map((t) => (
+          <div className="mb-5 flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
               <span
-                key={t}
+                key={tech}
                 className="
-          px-3 py-1.5 rounded-full
-          bg-white/10 border border-white/15
-          text-xs text-white/80
-        "
+                rounded-full border border-white/10
+                bg-white/[0.05] px-3 py-1
+                text-xs text-white/65
+              "
               >
-                {t}
+                {tech}
               </span>
             ))}
           </div>
         )}
 
-        {/* Action buttons */}
-        <div className="flex gap-3 mt-auto flex-wrap">
-          {path && (
-            <Link
-              href={path}
-              className="
-                w-full text-center py-2 rounded-md
-                bg-white/10 hover:bg-white/20
-                text-sm text-white
-                transition
-              "
-            >
-              Présentation du projet
-            </Link>
-          )}
-
+        {/* Project actions */}
+        <div className="mt-auto flex items-center justify-center gap-4 border-t border-white/10 pt-4">
           {project.demo && (
             <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
               className="
-                flex-1 text-center py-2 rounded-md
-                bg-blue-600/85 hover:bg-blue-500
-                text-white text-sm font-medium
-                transition
-              "
+              rounded-lg bg-blue-600 px-4 py-2
+              text-sm font-medium text-white
+              transition hover:bg-blue-500
+            "
             >
-              Demo
+              Démo
             </a>
           )}
 
@@ -227,18 +199,15 @@ export default function ProjectBlock({ project }: { project: Project }) {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                flex-1 text-center py-2 rounded-md
-                border border-white/30
-                hover:bg-white/10
-                text-sm text-white
-                transition
-              "
+              text-sm text-white/55
+              transition hover:text-white
+            "
             >
               Code
             </a>
           )}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
