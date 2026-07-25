@@ -64,7 +64,7 @@ export default function ProjectBlock({ project }: { project: Project }) {
 
             {/* Technology stack */}
             {project.tech && project.tech.length > 0 && (
-              <div className="mb-6 flex flex-wrap gap-2">
+             <div className="mb-6 flex flex-wrap justify-center gap-2 lg:justify-start">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
@@ -160,7 +160,7 @@ export default function ProjectBlock({ project }: { project: Project }) {
 
         {/* Technology stack */}
         {project.tech && project.tech.length > 0 && (
-          <div className="mb-5 flex flex-wrap gap-2">
+          <div className="mb-5 flex flex-wrap justify-center gap-2">
             {project.tech.map((tech) => (
               <span
                 key={tech}
