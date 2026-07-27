@@ -322,16 +322,7 @@ export default function Home() {
               Contact
             </h2>
 
-            <button
-              type="button"
-              onClick={() =>
-                window.dispatchEvent(new Event("open-contact"))
-              }
-              className="inline-flex items-center gap-3 rounded-lg bg-blue-600 px-6 py-3 font-medium transition hover:bg-blue-500"
-            >
-              <Mail size={22} />
-              Me contacter
-            </button>
+            <ContactModal inline />
           </div>
         </section>
       </main>
