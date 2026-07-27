@@ -16,7 +16,7 @@ export default function Projets() {
     <>
       <Navbar />
       <ContactModal />
-      <main className="min-h-screen px-4 py-20 bg-[#0A0F1F]">
+     <main className="min-h-screen bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] px-4 py-20">
         <section className="max-w-6xl mx-auto">
           {/* Page header */}
           <header className="text-center mb-16">

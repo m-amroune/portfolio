@@ -100,46 +100,7 @@ export default function Home() {
                 </span>
               </h2>
 
-              {/* Sliding text card */}
-              <div
-                className="
-                  max-w-lg
-                  rounded-2xl p-5
-                  bg-white/5 backdrop-blur-md
-                  border border-white/10
-                  shadow-[0_18px_50px_rgba(0,0,0,0.35)]
-                "
-              >
-                {aboutSlides[aboutIndex].label ? (
-                  <div className="text-white/80 text-base font-semibold mb-2">
-                    {aboutSlides[aboutIndex].label}
-                  </div>
-                ) : (
-                  <div className="mb-4">
-                    <span className="inline-block w-10 h-1 rounded-full bg-blue-400/80" />
-                  </div>
-                )}
-
-                <p className="text-blue-100/90 leading-relaxed">
-                  {aboutSlides[aboutIndex].text}
-                </p>
-
-                {/* Slide indicators */}
-                <div className="flex gap-3 mt-4">
-                  {aboutSlides.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setAboutIndex(i)}
-                      aria-label={`Slide ${i + 1}`}
-                      className={`h-2.5 w-2.5 rounded-full transition ${
-                        i === aboutIndex
-                          ? "bg-white"
-                          : "bg-white/30 hover:bg-white/60"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
+           
 
               {/* Primary actions */}
               <div className="flex gap-4 mt-6">
@@ -228,52 +189,103 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+       </section>
 
-        {/* ===================== SKILLS ===================== */}
-        <section className="py-16 px-6 bg-[#0D1326] border-t border-white/10">
-          <div className="max-w-6xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Compétences</h2>
+{/* ===================== ABOUT ===================== */}
+<section
+  id="a-propos"
+  className="border-t border-white/10 bg-[#0D1326] px-6 py-20"
+>
+  <div className="mx-auto max-w-6xl">
+    <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
+      À propos
+    </h2>
 
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Conception d’interfaces, intégration, logique front-end, APIs et
-              bases de données.
-            </p>
-          </div>
+    <div
+      className="
+        mx-auto max-w-3xl
+        rounded-2xl border border-white/10
+        bg-white/5 p-6 backdrop-blur-md
+        shadow-[0_18px_50px_rgba(0,0,0,0.35)]
+      "
+    >
+      {aboutSlides[aboutIndex].label ? (
+        <div className="mb-2 text-base font-semibold text-white/80">
+          {aboutSlides[aboutIndex].label}
+        </div>
+      ) : (
+        <div className="mb-4">
+          <span className="inline-block h-1 w-10 rounded-full bg-blue-400/80" />
+        </div>
+      )}
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12">
-            <SkillCard
-              icon={<Code2 size={28} className="text-blue-400" />}
-              title="Langages"
-              text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
-            />
-            <SkillCard
-              icon={<Layers size={28} className="text-indigo-400" />}
-              title="Stack technique"
-              text="React, Next.js, Redux, Node.js, Express"
-            />
-            <SkillCard
-              icon={<Database size={28} className="text-green-400" />}
-              title="Bases de données"
-              text="MongoDB (Atlas), PostgreSQL"
-            />
-            <SkillCard
-              icon={<Wrench size={28} className="text-orange-400" />}
-              title="Outils"
-              text="Git, GitHub, Vite, Docker, Replit, Linux, Bash"
-            />
-            <SkillCard
-              icon={<MonitorSmartphone size={28} className="text-purple-400" />}
-              title="UX / UI"
-              text="Figma, Responsive Design"
-            />
-          </div>
-        </section>
+      <p className="text-lg leading-relaxed text-blue-100/90">
+        {aboutSlides[aboutIndex].text}
+      </p>
+
+      <div className="mt-5 flex gap-3">
+        {aboutSlides.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setAboutIndex(i)}
+            aria-label={`Slide ${i + 1}`}
+            className={`h-2.5 w-2.5 rounded-full transition ${
+              i === aboutIndex
+                ? "bg-white"
+                : "bg-white/30 hover:bg-white/60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* Skills */}
+    <div className="mt-16 border-t border-white/10 pt-16">
+      <div className="space-y-4 text-center">
+        <h3 className="text-3xl font-bold md:text-4xl">Compétences</h3>
+
+        <p className="mx-auto max-w-2xl text-white/70">
+          Conception d’interfaces, intégration, logique front-end, APIs et
+          bases de données.
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <SkillCard
+          icon={<Code2 size={28} className="text-blue-400" />}
+          title="Langages"
+          text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
+        />
+        <SkillCard
+          icon={<Layers size={28} className="text-indigo-400" />}
+          title="Stack technique"
+          text="React, Next.js, Redux, Node.js, Express"
+        />
+        <SkillCard
+          icon={<Database size={28} className="text-green-400" />}
+          title="Bases de données"
+          text="MongoDB (Atlas), PostgreSQL"
+        />
+        <SkillCard
+          icon={<Wrench size={28} className="text-orange-400" />}
+          title="Outils"
+          text="Git, GitHub, Vite, Docker, Replit, Linux, Bash"
+        />
+        <SkillCard
+          icon={<MonitorSmartphone size={28} className="text-purple-400" />}
+          title="UX / UI"
+          text="Figma, Responsive Design"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* ===================== PROJECTS ===================== */}
         <section
           id="projets"
-          className="px-6 py-20 bg-[#0B0E1A] text-white border-t border-white/10"
+         className="px-6 py-20 bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] text-white border-t border-white/10"
         >
           <div className="max-w-5xl mx-auto space-y-10">
             <div className="text-center">
@@ -297,6 +309,29 @@ export default function Home() {
                 Voir tous les projets →
               </Link>
             </div>
+          </div>
+                </section>
+
+        {/* ===================== CONTACT ===================== */}
+        <section
+          id="contact"
+          className="border-t border-white/10 bg-[#0D1326] px-6 py-20"
+        >
+          <div className="mx-auto max-w-5xl text-center">
+            <h2 className="mb-10 text-3xl font-bold md:text-4xl">
+              Contact
+            </h2>
+
+            <button
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new Event("open-contact"))
+              }
+              className="inline-flex items-center gap-3 rounded-lg bg-blue-600 px-6 py-3 font-medium transition hover:bg-blue-500"
+            >
+              <Mail size={22} />
+              Me contacter
+            </button>
           </div>
         </section>
       </main>

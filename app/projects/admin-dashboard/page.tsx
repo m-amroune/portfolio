@@ -11,7 +11,7 @@ export default function AdminDashboardPage() {
       <Navbar />
       <ContactModal />
 
-      <main className="min-h-screen bg-[#0A0F1F] text-slate-200">
+     <main className="min-h-screen bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] text-white">
         <div className="mx-auto max-w-5xl space-y-16 px-6 py-20">
           <section className="space-y-8 border-b border-white/10 pb-14">
             {/* Project introduction */}
