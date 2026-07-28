@@ -92,13 +92,20 @@ export default function ContactModal({ inline = false }: ContactModalProps) {
       onClick={inline ? undefined : closeModal}
     >
       <div
-        className={`
-  relative w-full
-  rounded-3xl border border-white/10
-  bg-[#0f172a] text-white
-  shadow-[0_24px_90px_rgba(0,0,0,0.45)]
-  ${inline ? "mx-auto max-w-2xl" : "max-w-lg"}
-`}
+        className={
+          inline
+            ? `
+      relative mx-auto w-full max-w-2xl
+      rounded-2xl border border-white/15
+      bg-white/[0.04] text-white
+    `
+            : `
+        relative w-full max-w-lg
+        rounded-3xl border border-white/10
+        bg-[#0f172a] text-white
+        shadow-[0_24px_90px_rgba(0,0,0,0.45)]
+      `
+        }
         onClick={(e) => e.stopPropagation()}
       >
         {!inline && (
@@ -118,7 +125,7 @@ export default function ContactModal({ inline = false }: ContactModalProps) {
           </button>
         )}
 
-        <div className="p-6 md:p-8">
+        <div className={inline ? "p-6 md:p-10" : "p-6 md:p-8"}>
           {!inline && (
             <div className="mb-6 space-y-2 pr-10">
               <h3 className="text-2xl font-bold">Me contacter</h3>
@@ -184,15 +191,15 @@ export default function ContactModal({ inline = false }: ContactModalProps) {
               <textarea
                 id="contact-message"
                 name="message"
-                rows={5}
+                rows={4}
                 required
                 className="
-        w-full resize-none rounded-xl border border-white/10
-        bg-white/[0.06] px-4 py-3
-        text-white
-        outline-none transition
-        focus:border-blue-400/70 focus:bg-white/[0.08]
-      "
+    w-full resize-none rounded-xl border border-white/10
+    bg-white/[0.06] px-4 py-3
+    text-base text-white
+    outline-none transition
+    focus:border-blue-400/70 focus:bg-white/[0.08]
+  "
               />
             </div>
 
@@ -208,18 +215,21 @@ export default function ContactModal({ inline = false }: ContactModalProps) {
               </p>
             )}
 
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="
-      w-full rounded-xl bg-blue-600 px-5 py-3
-      font-semibold text-white transition
+            <div className="flex justify-center pt-2">
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="
+      inline-flex min-w-36 items-center justify-center
+      rounded-xl bg-blue-600 px-6 py-3
+      cursor-pointer text-base font-semibold text-white transition
       hover:bg-blue-500
       disabled:cursor-not-allowed disabled:opacity-60
     "
-            >
-              {status === "sending" ? "Envoi..." : "Envoyer"}
-            </button>
+              >
+                {status === "sending" ? "Envoi..." : "Envoyer"}
+              </button>
+            </div>
           </form>
         </div>
       </div>

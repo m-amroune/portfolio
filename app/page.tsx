@@ -31,7 +31,7 @@ export default function Home() {
     },
     {
       label: "OpenClassrooms",
-      text: "J’ai suivi le parcours Front-End d’OpenClassrooms, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
+      text: "J’ai suivi un parcours de formation développeur d'applications Javascript React, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
     },
     {
       label: "FreeCodeCamp",
@@ -78,7 +78,7 @@ export default function Home() {
         {/* ===================== HERO ===================== */}
         <section
           id="accueil"
-          className="relative min-h-[70vh] flex items-center px-6 md:px-12 lg:px-16"
+          className="relative flex min-h-[70vh] items-center overflow-hidden px-6 md:px-12 lg:px-16"
         >
           {/* Background decoration */}
           <div className="absolute inset-0 pointer-events-none">
@@ -99,8 +99,6 @@ export default function Home() {
                   React · Next.js · TypeScript
                 </span>
               </h2>
-
-           
 
               {/* Primary actions */}
               <div className="flex gap-4 mt-6">
@@ -189,103 +187,105 @@ export default function Home() {
               </div>
             </div>
           </div>
-       </section>
+        </section>
 
-{/* ===================== ABOUT ===================== */}
-<section
-  id="a-propos"
-  className="border-t border-white/10 bg-[#0D1326] px-6 py-20"
->
-  <div className="mx-auto max-w-6xl">
-    <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
-      À propos
-    </h2>
+        {/* ===================== ABOUT ===================== */}
+        <section
+          id="a-propos"
+          className="scroll-mt-20 border-t border-white/10 bg-[#0D1326] px-6 py-20"
+        >
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
+              À propos
+            </h2>
 
-    <div
-      className="
+            <div
+              className="
         mx-auto max-w-3xl
         rounded-2xl border border-white/10
         bg-white/5 p-6 backdrop-blur-md
         shadow-[0_18px_50px_rgba(0,0,0,0.35)]
       "
-    >
-      {aboutSlides[aboutIndex].label ? (
-        <div className="mb-2 text-base font-semibold text-white/80">
-          {aboutSlides[aboutIndex].label}
-        </div>
-      ) : (
-        <div className="mb-4">
-          <span className="inline-block h-1 w-10 rounded-full bg-blue-400/80" />
-        </div>
-      )}
+            >
+              {aboutSlides[aboutIndex].label ? (
+                <div className="mb-2 text-base font-semibold text-white/80">
+                  {aboutSlides[aboutIndex].label}
+                </div>
+              ) : (
+                <div className="mb-4">
+                  <span className="inline-block h-1 w-10 rounded-full bg-blue-400/80" />
+                </div>
+              )}
 
-      <p className="text-lg leading-relaxed text-blue-100/90">
-        {aboutSlides[aboutIndex].text}
-      </p>
+              <p className="text-lg leading-relaxed text-blue-100/90">
+                {aboutSlides[aboutIndex].text}
+              </p>
 
-      <div className="mt-5 flex gap-3">
-        {aboutSlides.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setAboutIndex(i)}
-            aria-label={`Slide ${i + 1}`}
-            className={`h-2.5 w-2.5 rounded-full transition ${
-              i === aboutIndex
-                ? "bg-white"
-                : "bg-white/30 hover:bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+              <div className="mt-5 flex gap-3">
+                {aboutSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setAboutIndex(i)}
+                    aria-label={`Slide ${i + 1}`}
+                    className={`h-2.5 w-2.5 rounded-full transition ${
+                      i === aboutIndex
+                        ? "bg-white"
+                        : "bg-white/30 hover:bg-white/60"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
 
-    {/* Skills */}
-    <div className="mt-16 border-t border-white/10 pt-16">
-      <div className="space-y-4 text-center">
-        <h3 className="text-3xl font-bold md:text-4xl">Compétences</h3>
+            {/* Skills */}
+            <div className="mt-16 border-t border-white/10 pt-16">
+              <div className="space-y-4 text-center">
+                <h3 className="text-3xl font-bold md:text-4xl">Compétences</h3>
 
-        <p className="mx-auto max-w-2xl text-white/70">
-          Conception d’interfaces, intégration, logique front-end, APIs et
-          bases de données.
-        </p>
-      </div>
+                <p className="mx-auto max-w-2xl text-white/70">
+                  Conception d’interfaces, intégration, logique front-end, APIs
+                  et bases de données.
+                </p>
+              </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <SkillCard
-          icon={<Code2 size={28} className="text-blue-400" />}
-          title="Langages"
-          text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
-        />
-        <SkillCard
-          icon={<Layers size={28} className="text-indigo-400" />}
-          title="Stack technique"
-          text="React, Next.js, Redux, Node.js, Express"
-        />
-        <SkillCard
-          icon={<Database size={28} className="text-green-400" />}
-          title="Bases de données"
-          text="MongoDB (Atlas), PostgreSQL"
-        />
-        <SkillCard
-          icon={<Wrench size={28} className="text-orange-400" />}
-          title="Outils"
-          text="Git, GitHub, Vite, Docker, Replit, Linux, Bash"
-        />
-        <SkillCard
-          icon={<MonitorSmartphone size={28} className="text-purple-400" />}
-          title="UX / UI"
-          text="Figma, Responsive Design"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <SkillCard
+                  icon={<Code2 size={28} className="text-blue-400" />}
+                  title="Langages"
+                  text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
+                />
+                <SkillCard
+                  icon={<Layers size={28} className="text-indigo-400" />}
+                  title="Stack technique"
+                  text="React, Next.js, Redux, Node.js, Express"
+                />
+                <SkillCard
+                  icon={<Database size={28} className="text-green-400" />}
+                  title="Bases de données"
+                  text="MongoDB (Atlas), PostgreSQL"
+                />
+                <SkillCard
+                  icon={<Wrench size={28} className="text-orange-400" />}
+                  title="Outils"
+                  text="Git, GitHub, Vite, Docker, Replit, Linux, Bash"
+                />
+                <SkillCard
+                  icon={
+                    <MonitorSmartphone size={28} className="text-purple-400" />
+                  }
+                  title="UX / UI"
+                  text="Figma, Responsive Design"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ===================== PROJECTS ===================== */}
         <section
           id="projets"
-         className="px-6 py-20 bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] text-white border-t border-white/10"
+          className="scroll-mt-20 px-6 py-20 bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] text-white border-t border-white/10"
         >
           <div className="max-w-5xl mx-auto space-y-10">
             <div className="text-center">
@@ -310,15 +310,15 @@ export default function Home() {
               </Link>
             </div>
           </div>
-                </section>
+        </section>
 
         {/* ===================== CONTACT ===================== */}
         <section
           id="contact"
-          className="border-t border-white/10 bg-[#0D1326] px-6 py-20"
+          className="scroll-mt-20 border-t border-white/10 bg-[#0D1326] px-6 py-20"
         >
-          <div className="mx-auto max-w-5xl text-center">
-            <h2 className="mb-10 text-3xl font-bold md:text-4xl">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
               Contact
             </h2>
 
