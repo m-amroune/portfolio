@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 
 import Navbar from "../components/Navbar";
@@ -20,24 +19,15 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  // Controls the active slide in the hero text card
-  const [aboutIndex, setAboutIndex] = useState(0);
-
-  // Hero text slides (content only, no dates)
-  const aboutSlides = [
-    {
-      label: null,
-      text: "J’approfondis ma pratique du développement web en travaillant sur des projets personnels, en parallèle de certifications en ligne. Mon axe principal est React, Next.js et TypeScript, avec un travail complémentaire sur le back-end et les bases de données.",
-    },
-    {
-      label: "OpenClassrooms",
-      text: "J’ai suivi un parcours de formation développeur d'applications Javascript React, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
-    },
-    {
-      label: "FreeCodeCamp",
-      text: "Avec FreeCodeCamp, j’ai complété ma pratique sur JavaScript, React, le back-end et les bases de données. Ce parcours m’a aidé à relier le front-end à la logique serveur et à la gestion des données.",
-    },
-  ];
+  // Hero text slides
+  const aboutContent = {
+    intro:
+      "J’approfondis ma pratique du développement web en travaillant sur des projets personnels, en parallèle de certifications en ligne. Mon axe principal est React, Next.js et TypeScript, avec un travail complémentaire sur le back-end et les bases de données.",
+    openClassrooms:
+      "J’ai suivi un parcours de formation développeur d'applications Javascript React, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
+    freeCodeCamp:
+      "Avec FreeCodeCamp, j’ai complété ma pratique sur JavaScript, React, le back-end et les bases de données. Ce parcours m’a aidé à relier le front-end à la logique serveur et à la gestion des données.",
+  };
 
   // Projects displayed on the home page
   const projects = [
@@ -199,43 +189,18 @@ export default function Home() {
               À propos
             </h2>
 
-            <div
-              className="
-        mx-auto max-w-3xl
-        rounded-2xl border border-white/10
-        bg-white/5 p-6 backdrop-blur-md
-        shadow-[0_18px_50px_rgba(0,0,0,0.35)]
-      "
-            >
-              {aboutSlides[aboutIndex].label ? (
-                <div className="mb-2 text-base font-semibold text-white/80">
-                  {aboutSlides[aboutIndex].label}
-                </div>
-              ) : (
-                <div className="mb-4">
-                  <span className="inline-block h-1 w-10 rounded-full bg-blue-400/80" />
-                </div>
-              )}
-
-              <p className="text-lg leading-relaxed text-blue-100/90">
-                {aboutSlides[aboutIndex].text}
+            <div className="mx-auto max-w-2xl space-y-6">
+              <p className="text-lg leading-8 text-white/85">
+                {aboutContent.intro}
               </p>
 
-              <div className="mt-5 flex gap-3">
-                {aboutSlides.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setAboutIndex(i)}
-                    aria-label={`Slide ${i + 1}`}
-                    className={`h-2.5 w-2.5 rounded-full transition ${
-                      i === aboutIndex
-                        ? "bg-white"
-                        : "bg-white/30 hover:bg-white/60"
-                    }`}
-                  />
-                ))}
-              </div>
+              <p className="text-justify text-lg leading-8 text-white/75">
+                {aboutContent.openClassrooms}
+              </p>
+
+              <p className="text-justify text-lg leading-8 text-white/75">
+                {aboutContent.freeCodeCamp}
+              </p>
             </div>
 
             {/* Skills */}
@@ -249,28 +214,37 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
                 <SkillCard
+                  className="lg:col-span-2"
                   icon={<Code2 size={28} className="text-blue-400" />}
                   title="Langages"
                   text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
                 />
+
                 <SkillCard
+                  className="lg:col-span-2"
                   icon={<Layers size={28} className="text-indigo-400" />}
                   title="Stack technique"
                   text="React, Next.js, Redux, Node.js, Express"
                 />
+
                 <SkillCard
+                  className="lg:col-span-2"
                   icon={<Database size={28} className="text-green-400" />}
                   title="Bases de données"
                   text="MongoDB (Atlas), PostgreSQL"
                 />
+
                 <SkillCard
+                  className="lg:col-span-2 lg:col-start-2"
                   icon={<Wrench size={28} className="text-orange-400" />}
                   title="Outils"
                   text="Git, GitHub, Vite, Docker, Replit, Linux, Bash"
                 />
+
                 <SkillCard
+                  className="lg:col-span-2"
                   icon={
                     <MonitorSmartphone size={28} className="text-purple-400" />
                   }
@@ -304,7 +278,14 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600/80 hover:bg-blue-700 transition border border-white/10 shadow-md hover:shadow-blue-900/30"
+                className="
+    inline-flex cursor-pointer items-center gap-2
+    rounded-xl border border-white/10
+    bg-blue-600 px-6 py-3
+    text-base font-medium text-white
+    shadow-md transition
+    hover:bg-blue-500 hover:shadow-blue-900/30
+  "
               >
                 Voir tous les projets →
               </Link>
@@ -334,21 +315,25 @@ export default function Home() {
 }
 
 /* ===================== SKILL CARD ===================== */
-// Simple presentational component for skill blocks
+
 function SkillCard({
   icon,
   title,
   text,
+  className = "",
 }: {
   icon: React.ReactNode;
   title: string;
   text: string;
+  className?: string;
 }) {
   return (
-    <div className="bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-xl hover:bg-white/10 transition hover:-translate-y-1">
+    <div
+      className={`rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/10 ${className}`}
+    >
       <div className="mb-3">{icon}</div>
       <h3 className="text-lg font-semibold mb-1">{title}</h3>
-      <p className="text-white/70 text-sm">{text}</p>
+      <p className="text-base leading-relaxed text-white/70">{text}</p>
     </div>
   );
 }

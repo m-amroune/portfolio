@@ -61,21 +61,19 @@ export default function HomeProjectCard({
               width={900}
               height={520}
               className={`
-      w-full object-contain opacity-75 brightness-75 contrast-110
-      ${isTall ? "h-[230px]" : "h-[210px]"}
-    `}
+    w-full object-contain
+    ${isTall ? "h-[230px]" : "h-[210px]"}
+  `}
             />
-
-            <div className="pointer-events-none absolute inset-0 bg-[#020617]/25" />
           </div>
         </div>
 
         {/* Project content */}
         <div
           className={`
-            flex flex-col text-left
-            ${isTall ? "flex-1 justify-end p-7" : "justify-center p-7"}
-          `}
+    flex flex-col text-left
+    ${isTall ? "flex-1 justify-start p-7" : "justify-center p-7"}
+  `}
         >
           {/* Project title */}
           <h3 className="mb-3 text-2xl font-bold leading-tight text-white">
@@ -100,7 +98,9 @@ export default function HomeProjectCard({
           )}
 
           {/* Project actions */}
-          <div className="flex flex-wrap gap-3">
+          <div
+            className={`flex flex-wrap gap-3 ${isTall ? "mt-auto pt-6" : ""}`}
+          >
             {path && (
               <Link
                 href={path}
