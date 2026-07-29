@@ -13,7 +13,6 @@ import {
   Database,
   Wrench,
   MonitorSmartphone,
-  Mail,
   Linkedin,
   Github,
 } from "lucide-react";
@@ -65,119 +64,77 @@ export default function Home() {
       <Navbar />
 
       <main className="bg-[#0A0F1F] text-white">
-        {/* ===================== HERO ===================== */}
-        <section
-          id="accueil"
-          className="relative flex min-h-[70vh] items-center overflow-hidden px-6 md:px-12 lg:px-16"
+      {/* ===================== HERO ===================== */}
+<section
+  id="accueil"
+  className="relative flex min-h-[70vh] items-center overflow-hidden px-6 py-24 sm:min-h-[58vh] sm:py-20 md:px-12 lg:min-h-[70vh] lg:px-16 lg:py-24"
+>
+  {/* Background decoration */}
+  <div className="pointer-events-none absolute inset-0">
+    <div className="absolute left-[-150px] top-[-100px] h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-3xl" />
+    <div className="absolute bottom-[-150px] right-[-100px] h-[450px] w-[450px] rounded-full bg-indigo-500/20 blur-2xl" />
+  </div>
+
+  <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 sm:grid-cols-[minmax(0,1fr)_5rem] sm:gap-8 md:gap-12 lg:gap-16">
+    {/* Left column: identity and hero content */}
+    <div className="max-w-3xl space-y-6">
+      <h1 className="text-3xl font-extrabold leading-tight md:text-5xl">
+        Moustapha Amroune
+      </h1>
+
+      <h2 className="text-2xl font-semibold leading-tight text-blue-400 md:text-4xl">
+        Développeur Front-End
+        <span className="block">React · Next.js · TypeScript</span>
+      </h2>
+
+      {/* Primary actions */}
+      <div className="flex flex-wrap gap-4 pt-2">
+        <Link
+          href="#projets"
+          className="cursor-pointer rounded-lg bg-blue-600 px-6 py-3 text-base font-medium transition hover:bg-blue-500"
         >
-          {/* Background decoration */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-150px]" />
-            <div className="absolute w-[450px] h-[450px] bg-indigo-500/20 rounded-full blur-2xl bottom-[-150px] right-[-100px]" />
-          </div>
+          Voir mes projets
+        </Link>
 
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-6 lg:gap-12 max-w-7xl mx-auto">
-            {/* Left column: identity and hero content */}
-            <div className="space-y-6">
-              <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
-                Moustapha Amroune
-              </h1>
+        <Link
+          href="#contact"
+          className="cursor-pointer rounded-lg border border-blue-500 px-6 py-3 text-base font-medium text-blue-300 transition hover:bg-blue-900/40"
+        >
+          Me contacter
+        </Link>
+      </div>
+    </div>
 
-              <h2 className="text-blue-400 text-2xl md:text-4xl font-semibold">
-                Développeur <span className="whitespace-nowrap">Front-End</span>{" "}
-                <span className="whitespace-nowrap">
-                  React · Next.js · TypeScript
-                </span>
-              </h2>
+    {/* Right column: social links */}
+    <div className="flex justify-center sm:-translate-x-4 sm:justify-end md:-translate-x-12 lg:-translate-x-20">
+      <div className="flex items-center gap-5 sm:gap-7">
+        <div className="hidden h-36 w-px bg-white/20 sm:block" />
 
-              {/* Primary actions */}
-              <div className="flex gap-4 mt-6">
-                <Link
-                  href="/projects"
-                  className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 font-medium transition"
-                >
-                  Voir mes projets
-                </Link>
+        <div className="flex items-center gap-5 sm:flex-col sm:gap-7">
+          <a
+            href="https://github.com/m-amroune"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="cursor-pointer p-2 text-white/80 transition hover:-translate-y-1 hover:text-blue-300"
+          >
+            <Github size={46} />
+          </a>
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    window.dispatchEvent(new Event("open-contact"))
-                  }
-                  className="px-6 py-3 rounded-lg border border-blue-500 text-blue-300 hover:bg-blue-900/40 transition font-medium"
-                >
-                  Me contacter
-                </button>
-              </div>
-            </div>
-
-            {/* Right column: social / contact cards */}
-            <div className="flex justify-center md:justify-start md:pl-10">
-              <div className="grid grid-cols-2 gap-6 w-full max-w-sm">
-                <a
-                  href="https://github.com/m-amroune"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="
-                    rounded-2xl p-8
-                    bg-white/5 border border-white/10
-                    backdrop-blur-md
-                    shadow-[0_20px_45px_rgba(0,0,0,0.55)]
-                    hover:bg-white/10 hover:border-white/20
-                    transition
-                    flex items-center justify-center
-                    cursor-pointer
-                    hover:scale-[1.03]
-                  "
-                >
-                  <Github size={56} className="text-white" />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/moustapha-amroune-839986182/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="
-                    rounded-2xl p-8
-                    bg-white/5 border border-white/10
-                    backdrop-blur-md
-                    shadow-[0_20px_45px_rgba(0,0,0,0.55)]
-                    hover:bg-white/10 hover:border-white/20
-                    transition
-                    flex items-center justify-center
-                    cursor-pointer
-                    hover:scale-[1.03]
-                  "
-                >
-                  <Linkedin size={56} className="text-white" />
-                </a>
-
-                <button
-                  onClick={() =>
-                    window.dispatchEvent(new Event("open-contact"))
-                  }
-                  aria-label="Contact"
-                  className="
-                    col-span-2
-                    rounded-2xl p-8
-                    bg-white/5 border border-white/10
-                    backdrop-blur-md
-                    shadow-[0_20px_45px_rgba(0,0,0,0.55)]
-                    hover:bg-white/10 hover:border-white/20
-                    transition
-                    flex items-center justify-center
-                    cursor-pointer
-                    hover:scale-[1.03]
-                  "
-                >
-                  <Mail size={64} className="text-white" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+          <a
+            href="https://www.linkedin.com/in/moustapha-amroune-839986182/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="cursor-pointer p-2 text-white/80 transition hover:-translate-y-1 hover:text-blue-300"
+          >
+            <Linkedin size={46} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* ===================== ABOUT ===================== */}
         <section
