@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 type ContactPayload = {
   name?: string;
@@ -16,13 +16,21 @@ export async function POST(request: Request) {
       return Response.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    if (!process.env.CONTACT_TO_EMAIL) {
-      return Response.json({ error: "Missing recipient" }, { status: 500 });
-    }
+   const apiKey = process.env.RESEND_API_KEY;
+const contactToEmail = process.env.CONTACT_TO_EMAIL;
+
+if (!apiKey || !contactToEmail) {
+  return Response.json(
+    { error: "Missing email configuration" },
+    { status: 500 },
+  );
+}
+
+const resend = new Resend(apiKey);
 
     const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
-      to: [process.env.CONTACT_TO_EMAIL],
+     to: [contactToEmail],
       replyTo: email.trim(),
       subject: `Message portfolio - ${name.trim()}`,
       text: `
