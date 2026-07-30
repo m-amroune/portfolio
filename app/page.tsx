@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import HomeProjectCard from "../components/HomeProjectCard";
 import Footer from "../components/Footer";
@@ -63,11 +63,11 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="bg-[#0A0F1F] text-white">
+      <main className="bg-[var(--background)] text-[var(--foreground)]">
       {/* ===================== HERO ===================== */}
 <section
   id="accueil"
-  className="relative flex min-h-[70vh] items-center overflow-hidden px-6 py-24 sm:min-h-[58vh] sm:py-20 md:px-12 lg:min-h-[70vh] lg:px-16 lg:py-24"
+  className="relative flex min-h-[70vh] items-center overflow-hidden px-6 pb-24 pt-32 sm:min-h-[58vh] sm:pb-20 sm:pt-32 md:px-12 lg:min-h-[70vh] lg:px-16 lg:pb-24 lg:pt-32"
 >
   {/* Background decoration */}
   <div className="pointer-events-none absolute inset-0">
@@ -139,9 +139,15 @@ export default function Home() {
         {/* ===================== ABOUT ===================== */}
         <section
           id="a-propos"
-          className="scroll-mt-20 border-t border-white/10 bg-[#0D1326] px-6 py-20"
+          className="scroll-mt-20 border-t border-[var(--border)] bg-[var(--surface)] px-6 py-16 md:py-24"
         >
-          <div className="mx-auto max-w-6xl">
+          <motion.div
+  className="mx-auto max-w-6xl"
+  initial={{ opacity: 0, y: 18 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.15 }}
+  transition={{ duration: 2, ease: "easeOut" }}
+>
             <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
               À propos
             </h2>
@@ -171,7 +177,13 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
+              <motion.div
+  className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6"
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.15 }}
+  transition={{ duration: 1.2, ease: "easeOut" }}
+>
                 <SkillCard
                   className="lg:col-span-2"
                   icon={<Code2 size={28} className="text-blue-400" />}
@@ -208,17 +220,23 @@ export default function Home() {
                   title="UX / UI"
                   text="Figma, Responsive Design"
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* ===================== PROJECTS ===================== */}
         <section
           id="projets"
-          className="scroll-mt-20 px-6 py-20 bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] text-white border-t border-white/10"
+         className="scroll-mt-20 border-t border-[var(--border)] bg-[var(--background)] px-6 py-16 text-[var(--foreground)] md:py-24"
         >
-          <div className="max-w-5xl mx-auto space-y-10">
+          <motion.div
+  className="mx-auto max-w-5xl space-y-10"
+  initial={{ opacity: 0, scale: 0.98 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true, amount: 0.12 }}
+  transition={{ duration: 1.4, ease: "easeOut" }}
+>
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold">Mes projets</h2>
             </div>
@@ -247,22 +265,29 @@ export default function Home() {
                 Voir tous les projets →
               </Link>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* ===================== CONTACT ===================== */}
-        <section
-          id="contact"
-          className="scroll-mt-20 border-t border-white/10 bg-[#0D1326] px-6 py-20"
-        >
-          <div className="mx-auto max-w-5xl">
-            <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
-              Contact
-            </h2>
+        {/* ===================== CONTACT ===================== */}
+<section
+  id="contact"
+  className="scroll-mt-20 overflow-hidden border-t border-[var(--border)] bg-[var(--surface-soft)] px-6 py-16 md:py-24"
+>
+  <motion.div
+    className="mx-auto max-w-5xl"
+    initial={{ opacity: 0, x: 32 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, amount: 0.15 }}
+    transition={{ duration: 1.4, ease: "easeOut" }}
+  >
+    <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
+      Contact
+    </h2>
 
-            <ContactModal inline />
-          </div>
-        </section>
+    <ContactModal inline />
+  </motion.div>
+</section>
       </main>
 
       <ContactModal />

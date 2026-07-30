@@ -56,104 +56,125 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <nav
-      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0D1326]/95 text-white backdrop-blur-md"
-      role="navigation"
-      aria-label="Navigation principale"
+  <nav
+    className="fixed inset-x-0 top-4 z-50 px-4"
+    role="navigation"
+    aria-label="Navigation principale"
+  >
+    <div
+      className="
+        mx-auto flex max-w-4xl items-center justify-between
+        rounded-full border border-[var(--border)]
+        bg-[var(--surface)] px-4 py-2.5
+        text-[var(--foreground)]
+        shadow-[0_18px_50px_rgba(0,0,0,0.28)]
+        backdrop-blur-xl sm:px-5
+      "
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link
-          href="/#accueil"
-          aria-label="Retour à l’accueil"
-          onClick={() => setMenuOpen(false)}
-        >
-          <span className="text-xl font-semibold tracking-tight">M. A.</span>
-        </Link>
+      <Link
+        href="/#accueil"
+        aria-label="Retour à l’accueil"
+        onClick={() => setMenuOpen(false)}
+        className="rounded-full px-3 py-2 transition hover:bg-white/[0.06]"
+      >
+        <span className="text-xl font-semibold tracking-tight">
+          M. A.
+        </span>
+      </Link>
 
-        {/* Desktop navigation */}
-        <ul className="hidden items-center gap-8 text-lg font-medium md:flex">
-          {navItems.map(({ id, label }) => {
-            const isActive = pathname === "/" && activeSection === id;
+      {/* Desktop navigation */}
+      <ul className="hidden items-center gap-1 text-base font-medium md:flex">
+        {navItems.map(({ id, label }) => {
+          const isActive =
+            pathname === "/" && activeSection === id;
 
-            return (
-              <li key={id}>
-                <Link
-                  href={`/#${id}`}
-                  aria-current={isActive ? "location" : undefined}
-                  className={`relative block py-2 transition ${
-                    isActive
-                      ? "text-blue-300"
-                      : "text-white/75 hover:text-white"
-                  }`}
-                >
-                  {label}
+          return (
+            <li key={id}>
+              <Link
+                href={`/#${id}`}
+                aria-current={isActive ? "location" : undefined}
+                className={`block rounded-full px-5 py-2.5 transition ${
+                  isActive
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "text-white/70 hover:bg-white/[0.06] hover:text-white"
+                }`}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
 
-                  <span
-                    className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-blue-400 transition-transform ${
-                      isActive ? "scale-x-100" : "scale-x-0"
-                    }`}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      {/* Mobile menu button */}
+      <button
+        type="button"
+        onClick={() => setMenuOpen((current) => !current)}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
+        aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        className="
+          flex cursor-pointer flex-col gap-1.5
+          rounded-full p-3 transition
+          hover:bg-white/[0.08] md:hidden
+        "
+      >
+        <span
+          className={`h-0.5 w-6 bg-white transition ${
+            menuOpen ? "translate-y-2 rotate-45" : ""
+          }`}
+        />
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          onClick={() => setMenuOpen((current) => !current)}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          className="flex cursor-pointer flex-col gap-1.5 rounded-lg p-2 transition hover:bg-white/10 md:hidden"
-        >
-          <span
-            className={`h-0.5 w-6 bg-white transition ${
-              menuOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white transition ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white transition ${
-              menuOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
-        </button>
-      </div>
+        <span
+          className={`h-0.5 w-6 bg-white transition ${
+            menuOpen ? "opacity-0" : ""
+          }`}
+        />
 
-      {/* Mobile navigation */}
-      {menuOpen && (
-        <ul
-          id="mobile-navigation"
-          className="border-t border-white/10 bg-[#0D1326] px-6 py-4 text-base font-medium md:hidden"
-        >
-          {navItems.map(({ id, label }) => {
-            const isActive = pathname === "/" && activeSection === id;
+        <span
+          className={`h-0.5 w-6 bg-white transition ${
+            menuOpen ? "-translate-y-2 -rotate-45" : ""
+          }`}
+        />
+      </button>
+    </div>
 
-            return (
-              <li key={id}>
-                <Link
-                  href={`/#${id}`}
-                  onClick={() => setMenuOpen(false)}
-                  aria-current={isActive ? "location" : undefined}
-                  className={`block border-b border-white/10 py-4 transition last:border-b-0 ${
-                    isActive
-                      ? "text-blue-300"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                >
-                  {label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </nav>
-  );
+    {/* Mobile navigation */}
+    {menuOpen && (
+      <ul
+        id="mobile-navigation"
+        className="
+          mx-auto mt-3 max-w-4xl rounded-2xl
+          border border-[var(--border)]
+          bg-[var(--surface)] p-3
+          text-base font-medium
+          shadow-[0_18px_50px_rgba(0,0,0,0.28)]
+          md:hidden
+        "
+      >
+        {navItems.map(({ id, label }) => {
+          const isActive =
+            pathname === "/" && activeSection === id;
+
+          return (
+            <li key={id}>
+              <Link
+                href={`/#${id}`}
+                onClick={() => setMenuOpen(false)}
+                aria-current={isActive ? "location" : undefined}
+                className={`block rounded-xl px-4 py-3.5 transition ${
+                  isActive
+                    ? "bg-blue-600 text-white"
+                    : "text-white/80 hover:bg-white/[0.06] hover:text-white"
+                }`}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </nav>
+);
 }
