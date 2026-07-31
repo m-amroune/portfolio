@@ -23,7 +23,7 @@ export default function Home() {
     intro:
       "J’approfondis ma pratique du développement web en travaillant sur des projets personnels, en parallèle de certifications en ligne. Mon axe principal est React, Next.js et TypeScript, avec un travail complémentaire sur le back-end et les bases de données.",
     openClassrooms:
-      "J’ai suivi un parcours de formation développeur d'applications Javascript React, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
+      "J’ai suivi un parcours de formation développeur d'applications Javascript React chez OpenClassrooms, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
     freeCodeCamp:
       "Avec FreeCodeCamp, j’ai complété ma pratique sur JavaScript, React, le back-end et les bases de données. Ce parcours m’a aidé à relier le front-end à la logique serveur et à la gestion des données.",
   };
@@ -82,55 +82,66 @@ export default function Home() {
         Moustapha Amroune
       </h1>
 
-      <h2 className="text-2xl font-semibold leading-tight text-blue-400 md:text-4xl">
-        Développeur Front-End
-        <span className="block">React · Next.js · TypeScript</span>
-      </h2>
+      <h2 className="text-2xl font-semibold leading-tight text-[var(--accent)] md:text-4xl">
+  Développeur Front-End
+  <span className="block">React · Next.js · TypeScript</span>
+</h2>
 
-      {/* Primary actions */}
-      <div className="flex flex-wrap gap-4 pt-2">
-        <Link
-          href="#projets"
-          className="cursor-pointer rounded-lg bg-blue-600 px-6 py-3 text-base font-medium transition hover:bg-blue-500"
-        >
-          Voir mes projets
-        </Link>
+{/* Primary actions */}
+<div className="flex flex-wrap gap-4 pt-2">
+  <Link
+    href="#projets"
+    className="
+      cursor-pointer rounded-lg
+      bg-[var(--accent-strong)] px-6 py-3
+      text-base font-medium text-white
+      transition hover:brightness-110
+    "
+  >
+    Voir mes projets
+  </Link>
 
-        <Link
-          href="#contact"
-          className="cursor-pointer rounded-lg border border-blue-500 px-6 py-3 text-base font-medium text-blue-300 transition hover:bg-blue-900/40"
-        >
-          Me contacter
-        </Link>
-      </div>
+  <Link
+    href="#contact"
+    className="
+      cursor-pointer rounded-lg
+      border border-[var(--accent)]
+      px-6 py-3 text-base font-medium
+      text-[var(--accent)]
+      transition hover:bg-white/[0.06]
+    "
+  >
+    Me contacter
+  </Link>
+</div>
     </div>
 
     {/* Right column: social links */}
-    <div className="flex justify-center sm:-translate-x-4 sm:justify-end md:-translate-x-12 lg:-translate-x-20">
+    <div className="flex justify-center sm:-translate-x-4 sm:justify-end md:-translate-x-12 lg:-translate-x-24">
       <div className="flex items-center gap-5 sm:gap-7">
-        <div className="hidden h-36 w-px bg-white/20 sm:block" />
+        <div className="hidden h-36 w-px bg-[var(--border)] sm:block" />
 
-        <div className="flex items-center gap-5 sm:flex-col sm:gap-7">
-          <a
-            href="https://github.com/m-amroune"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="cursor-pointer p-2 text-white/80 transition hover:-translate-y-1 hover:text-blue-300"
-          >
-            <Github size={46} />
-          </a>
+<div className="flex items-center gap-5 sm:flex-col sm:gap-7">
+  <a
+    href="https://github.com/m-amroune"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    className="cursor-pointer p-2 text-[var(--muted)] transition hover:-translate-y-1 hover:text-[var(--accent)]"
+  >
+    <Github size={46} />
+  </a>
 
-          <a
-            href="https://www.linkedin.com/in/moustapha-amroune-839986182/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="cursor-pointer p-2 text-white/80 transition hover:-translate-y-1 hover:text-blue-300"
-          >
-            <Linkedin size={46} />
-          </a>
-        </div>
+  <a
+    href="https://www.linkedin.com/in/moustapha-amroune-839986182/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="cursor-pointer p-2 text-[var(--muted)] transition hover:-translate-y-1 hover:text-[var(--accent)]"
+  >
+    <Linkedin size={46} />
+  </a>
+</div>
       </div>
     </div>
   </div>
@@ -153,29 +164,29 @@ export default function Home() {
             </h2>
 
             <div className="mx-auto max-w-2xl space-y-6">
-              <p className="text-lg leading-8 text-white/85">
-                {aboutContent.intro}
-              </p>
+  <p className="text-justify text-lg leading-8 text-[var(--muted)]">
+    {aboutContent.intro}
+  </p>
 
-              <p className="text-justify text-lg leading-8 text-white/75">
-                {aboutContent.openClassrooms}
-              </p>
+  <p className="text-justify text-lg leading-8 text-[var(--muted)]">
+    {aboutContent.openClassrooms}
+  </p>
 
-              <p className="text-justify text-lg leading-8 text-white/75">
-                {aboutContent.freeCodeCamp}
-              </p>
-            </div>
+  <p className="text-justify text-lg leading-8 text-[var(--muted)]">
+    {aboutContent.freeCodeCamp}
+  </p>
+</div>
 
             {/* Skills */}
-            <div className="mt-16 border-t border-white/10 pt-16">
-              <div className="space-y-4 text-center">
-                <h3 className="text-3xl font-bold md:text-4xl">Compétences</h3>
+            <div className="mt-16 border-t border-[var(--border)] pt-16">
+  <div className="space-y-4 text-center">
+    <h3 className="text-3xl font-bold md:text-4xl">Compétences</h3>
 
-                <p className="mx-auto max-w-2xl text-white/70">
-                  Conception d’interfaces, intégration, logique front-end, APIs
-                  et bases de données.
-                </p>
-              </div>
+    <p className="mx-auto max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+      Conception d’interfaces, intégration, logique front-end, APIs et
+      bases de données.
+    </p>
+  </div>
 
               <motion.div
   className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6"
@@ -251,24 +262,24 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <Link
-                href="/projects"
-                className="
+            <Link
+  href="/projects"
+  className="
     inline-flex cursor-pointer items-center gap-2
-    rounded-xl border border-white/10
-    bg-blue-600 px-6 py-3
-    text-base font-medium text-white
-    shadow-md transition
-    hover:bg-blue-500 hover:shadow-blue-900/30
+    rounded-xl border border-[var(--border)]
+    bg-[var(--surface)] px-6 py-3
+    text-base font-medium text-[var(--foreground)]
+    transition
+    hover:border-[var(--accent)]
+    hover:text-[var(--accent)]
   "
-              >
-                Voir tous les projets →
-              </Link>
+>
+  Voir tous les projets →
+</Link>
             </div>
           </motion.div>
         </section>
 
-        {/* ===================== CONTACT ===================== */}
         {/* ===================== CONTACT ===================== */}
 <section
   id="contact"
@@ -310,12 +321,19 @@ function SkillCard({
   className?: string;
 }) {
   return (
-    <div
-      className={`rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/10 ${className}`}
-    >
+   <div
+  className={`
+    rounded-2xl border border-[var(--border)]
+    bg-[var(--background)] p-6
+    transition duration-300
+    hover:-translate-y-1
+    hover:border-[var(--accent)]/40
+    ${className}
+  `}
+>
       <div className="mb-3">{icon}</div>
       <h3 className="text-lg font-semibold mb-1">{title}</h3>
-      <p className="text-base leading-relaxed text-white/70">{text}</p>
+      <p className="text-base leading-relaxed text-[var(--muted)]">{text}</p>
     </div>
   );
 }

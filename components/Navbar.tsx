@@ -95,7 +95,7 @@ export default function Navbar() {
                 aria-current={isActive ? "location" : undefined}
                 className={`block rounded-full px-5 py-2.5 transition ${
                   isActive
-                    ? "bg-blue-600 text-white shadow-md"
+                    ? "bg-[var(--accent-strong)] text-white shadow-md"
                     : "text-white/70 hover:bg-white/[0.06] hover:text-white"
                 }`}
               >
@@ -164,7 +164,7 @@ export default function Navbar() {
                 aria-current={isActive ? "location" : undefined}
                 className={`block rounded-xl px-4 py-3.5 transition ${
                   isActive
-                    ? "bg-blue-600 text-white"
+                    ? "bg-[var(--accent-strong)] text-white"
                     : "text-white/80 hover:bg-white/[0.06] hover:text-white"
                 }`}
               >

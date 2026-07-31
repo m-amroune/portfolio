@@ -33,13 +33,16 @@ export default function HomeProjectCard({
   return (
     <article
       className={`
-        group overflow-hidden rounded-3xl
-        border border-white/15 bg-[#111827]
-        shadow-[0_22px_70px_rgba(0,0,0,0.55)]
-        ring-1 ring-white/[0.03]
-        transition duration-300 hover:border-blue-400/35 hover:bg-[#141b2a]
-        ${isTall ? "h-full" : ""}
-      `}
+    group overflow-hidden rounded-3xl
+    border border-[var(--border)]
+    bg-[var(--surface)]
+    shadow-[0_18px_50px_rgba(0,0,0,0.28)]
+    transition duration-300
+    hover:-translate-y-1
+    hover:border-[var(--accent)]
+    hover:bg-[var(--surface-soft)]
+    ${isTall ? "h-full" : ""}
+  `}
     >
       <div
         className={`
@@ -50,11 +53,15 @@ export default function HomeProjectCard({
         {/* Project screenshot */}
         <div
           className={`
-            bg-white/[0.035] p-4
-            ${isTall ? "border-b border-white/10" : "border-b border-white/10 lg:border-b-0 lg:border-r"}
-          `}
+    bg-[var(--background)] p-3
+    ${
+      isTall
+        ? "border-b border-[var(--border)]"
+        : "border-b border-[var(--border)] lg:border-b-0 lg:border-r"
+    }
+  `}
         >
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#020617]">
+          <div className="relative overflow-hidden rounded-xl bg-[var(--surface-soft)]">
             <Image
               src={image}
               alt={title}
@@ -81,15 +88,16 @@ export default function HomeProjectCard({
           </h3>
 
           {/* Project description */}
-          <p className="mb-5 text-white/65 leading-relaxed">{description}</p>
-
+        <p className="mb-5 text-base leading-relaxed text-[var(--muted)]">
+  {description}
+</p>
           {/* Technology stack */}
           {tech && tech.length > 0 && (
             <div className="mb-6 flex flex-wrap gap-2">
               {tech.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-white/70"
+                  className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-base font-medium text-[var(--muted)]"
                 >
                   {item}
                 </span>
@@ -98,37 +106,42 @@ export default function HomeProjectCard({
           )}
 
           {/* Project actions */}
-          <div
-            className={`flex flex-wrap gap-3 ${isTall ? "mt-auto pt-6" : ""}`}
-          >
-            {path && (
-              <Link
-                href={path}
-                className="
-                  rounded-lg border border-white/15 bg-white/5
-                  px-4 py-2 text-white/85
-                  hover:bg-white/10 transition
-                "
-              >
-                Présentation
-              </Link>
-            )}
+    <div
+  className={`flex flex-wrap gap-3 ${
+    isTall ? "mt-auto pt-6" : ""
+  }`}
+>
+  {path && (
+    <Link
+      href={path}
+      className="
+        cursor-pointer rounded-xl
+        border border-[var(--border)]
+        px-5 py-2.5 text-base font-medium
+        text-[var(--foreground)] transition
+        hover:border-[var(--accent)] hover:bg-white/[0.05]
+      "
+    >
+      Présentation
+    </Link>
+  )}
 
-            {demo && (
-              <a
-                href={demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  rounded-lg bg-blue-600
-                  px-5 py-2 font-medium text-white
-                  hover:bg-blue-500 transition
-                "
-              >
-                Démo
-              </a>
-            )}
-          </div>
+  {demo && (
+    <a
+      href={demo}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        cursor-pointer rounded-xl
+        bg-[var(--accent-strong)] px-5 py-2.5
+        text-base font-medium text-white
+        transition hover:brightness-110
+      "
+    >
+      Démo
+    </a>
+  )}
+</div>
         </div>
       </div>
     </article>
