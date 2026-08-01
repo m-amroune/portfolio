@@ -92,7 +92,7 @@ export default function Home() {
   <Link
     href="#projets"
     className="
-      cursor-pointer rounded-lg
+      cursor-pointer rounded-xl
       bg-[var(--accent-strong)] px-6 py-3
       text-base font-medium text-white
       transition hover:brightness-110
@@ -104,7 +104,7 @@ export default function Home() {
   <Link
     href="#contact"
     className="
-      cursor-pointer rounded-lg
+      cursor-pointer rounded-xl
       border border-[var(--accent)]
       px-6 py-3 text-base font-medium
       text-[var(--accent)]
@@ -251,15 +251,11 @@ export default function Home() {
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold">Mes projets</h2>
             </div>
-
-            <div className="grid gap-5 lg:grid-cols-[0.95fr_1.15fr]">
-              <HomeProjectCard {...projects[0]} variant="tall" />
-
-              <div className="grid gap-5">
-                <HomeProjectCard {...projects[1]} variant="wide" />
-                <HomeProjectCard {...projects[2]} variant="wide" />
-              </div>
-            </div>
+<div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+  <HomeProjectCard {...projects[0]} featured />
+  <HomeProjectCard {...projects[1]} />
+  <HomeProjectCard {...projects[2]} />
+</div>
 
             <div className="text-center">
             <Link
@@ -301,7 +297,6 @@ export default function Home() {
 </section>
       </main>
 
-      <ContactModal />
       <Footer />
     </>
   );

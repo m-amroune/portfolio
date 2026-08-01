@@ -8,7 +8,7 @@ type HomeProjectCardProps = {
   repo?: string;
   description?: string;
   tech?: string[];
-  variant?: "tall" | "wide";
+  featured?: boolean;
 };
 
 export default function HomeProjectCard({
@@ -17,7 +17,7 @@ export default function HomeProjectCard({
   demo,
   description,
   tech,
-  variant = "wide",
+  featured = false,
 }: HomeProjectCardProps) {
   const path =
     title === "Admin Dashboard"
@@ -28,120 +28,158 @@ export default function HomeProjectCard({
           ? "/projects/github-resume-generator"
           : null;
 
-  const isTall = variant === "tall";
-
   return (
     <article
       className={`
-    group overflow-hidden rounded-3xl
-    border border-[var(--border)]
-    bg-[var(--surface)]
-    shadow-[0_18px_50px_rgba(0,0,0,0.28)]
-    transition duration-300
-    hover:-translate-y-1
-    hover:border-[var(--accent)]
-    hover:bg-[var(--surface-soft)]
-    ${isTall ? "h-full" : ""}
-  `}
+        group flex h-full flex-col overflow-hidden
+        rounded-3xl border border-[var(--border)]
+        bg-[var(--surface)]
+        shadow-[0_18px_50px_rgba(0,0,0,0.24)]
+      transition duration-500
+hover:shadow-[0_24px_70px_rgba(37,99,235,0.18)]
+       ${featured ? "md:col-span-2 md:mx-auto md:w-full md:max-w-4xl" : ""}
+      `}
     >
-      <div
-        className={`
-          h-full
-          ${isTall ? "flex flex-col" : "grid lg:grid-cols-[42%_1fr]"}
-        `}
-      >
-        {/* Project screenshot */}
-        <div
-          className={`
-    bg-[var(--background)] p-3
-    ${
-      isTall
-        ? "border-b border-[var(--border)]"
-        : "border-b border-[var(--border)] lg:border-b-0 lg:border-r"
-    }
-  `}
-        >
-          <div className="relative overflow-hidden rounded-xl bg-[var(--surface-soft)]">
-            <Image
-              src={image}
-              alt={title}
-              width={900}
-              height={520}
-              className={`
-    w-full object-contain
-    ${isTall ? "h-[230px]" : "h-[210px]"}
-  `}
-            />
-          </div>
+      {/* Project screenshot */}
+      <div className="relative aspect-video overflow-hidden bg-[var(--background)] p-4 md:p-6">
+        <div className="relative h-full w-full overflow-hidden rounded-xl">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes={
+              featured
+                ? "(min-width: 768px) 896px, 100vw"
+                : "(min-width: 768px) 432px, 100vw"
+            }
+            className={`
+  object-contain
+  transition-transform duration-700 ease-out
+  ${featured ? "group-hover:scale-[1.02]" : "group-hover:scale-[1.05]"}
+`}
+          />
         </div>
 
-        {/* Project content */}
+        {/* Desktop hover overlay */}
         <div
-          className={`
-    flex flex-col text-left
-    ${isTall ? "flex-1 justify-start p-7" : "justify-center p-7"}
-  `}
-        >
-          {/* Project title */}
-          <h3 className="mb-3 text-2xl font-bold leading-tight text-white">
-            {title}
-          </h3>
+          className="
+            pointer-events-none absolute inset-0 hidden
+            bg-gradient-to-t from-black/75 via-black/20 to-transparent
+            opacity-0 transition-opacity duration-300
+            group-hover:opacity-100 lg:block
+          "
+        />
 
-          {/* Project description */}
-        <p className="mb-5 text-base leading-relaxed text-[var(--muted)]">
-  {description}
-</p>
-          {/* Technology stack */}
-          {tech && tech.length > 0 && (
-            <div className="mb-6 flex flex-wrap gap-2">
-              {tech.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-base font-medium text-[var(--muted)]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+        {/* Desktop hover actions */}
+        <div
+          className="
+            absolute inset-0 hidden items-center justify-center gap-4
+            opacity-0 transition-all duration-300
+            group-hover:opacity-100 lg:flex
+          "
+        >
+          {path && (
+            <Link
+              href={path}
+              className="
+                cursor-pointer rounded-xl
+                border border-white/30 bg-black/45
+                px-5 py-2.5 text-base font-medium text-white
+                backdrop-blur-md transition
+                hover:border-white/60 hover:bg-black/65
+              "
+            >
+              Présentation
+            </Link>
           )}
 
-          {/* Project actions */}
-    <div
-  className={`flex flex-wrap gap-3 ${
-    isTall ? "mt-auto pt-6" : ""
-  }`}
->
-  {path && (
-    <Link
-      href={path}
-      className="
-        cursor-pointer rounded-xl
-        border border-[var(--border)]
-        px-5 py-2.5 text-base font-medium
-        text-[var(--foreground)] transition
-        hover:border-[var(--accent)] hover:bg-white/[0.05]
-      "
-    >
-      Présentation
-    </Link>
-  )}
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                cursor-pointer rounded-xl
+                bg-[var(--accent-strong)]
+                px-5 py-2.5 text-base font-medium text-white
+                transition hover:brightness-110
+              "
+            >
+              Démo
+            </a>
+          )}
+        </div>
+      </div>
 
-  {demo && (
-    <a
-      href={demo}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        cursor-pointer rounded-xl
-        bg-[var(--accent-strong)] px-5 py-2.5
-        text-base font-medium text-white
-        transition hover:brightness-110
-      "
-    >
-      Démo
-    </a>
-  )}
-</div>
+      {/* Project content */}
+      <div className="flex flex-1 flex-col items-center p-6 text-center md:p-7">
+        <h3
+          className="
+            mb-3 text-2xl font-bold leading-tight
+            text-[var(--foreground)] transition-colors duration-300
+            group-hover:text-[var(--accent)]
+          "
+        >
+          {title}
+        </h3>
+
+        <p className="w-full max-w-3xl text-left text-base leading-relaxed text-[var(--muted)]">
+  {description}
+</p>
+
+        {/* Technology stack */}
+        {tech && tech.length > 0 && (
+          <div className="mt-auto flex flex-wrap justify-center gap-2 pt-6">
+            {tech.map((item) => (
+              <span
+                key={item}
+                className="
+                  rounded-full border border-[var(--border)]
+                  bg-[var(--background)] px-3 py-1.5
+                  text-base font-medium text-[var(--muted)]
+                  transition
+                  group-hover:border-[var(--accent)]/40
+                "
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Mobile and tablet actions */}
+        {/* Project actions */}
+<div className="mt-6 flex flex-wrap justify-center gap-3">
+          {path && (
+            <Link
+              href={path}
+              className="
+                cursor-pointer rounded-xl
+                border border-[var(--border)]
+                px-5 py-2.5 text-base font-medium
+                text-[var(--foreground)] transition
+                hover:border-[var(--accent)]
+              "
+            >
+              Présentation
+            </Link>
+          )}
+
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                cursor-pointer rounded-xl
+                bg-[var(--accent-strong)]
+                px-5 py-2.5 text-base font-medium text-white
+                transition hover:brightness-110
+              "
+            >
+              Démo
+            </a>
+          )}
         </div>
       </div>
     </article>
