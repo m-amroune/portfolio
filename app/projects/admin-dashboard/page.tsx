@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar";
@@ -12,7 +13,24 @@ export default function AdminDashboardPage() {
         <article className="mx-auto max-w-6xl px-6 pb-24">
           {/* Project introduction */}
           <header className="mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+<div className="mb-8 flex justify-center">
+  <Link
+    href="/projects"
+    className="
+      inline-flex cursor-pointer items-center
+      rounded-full border border-[var(--border)]
+      bg-[var(--surface)] px-5 py-2.5
+      text-base font-medium text-[var(--muted)]
+      transition
+      hover:border-[var(--accent)]
+      hover:text-[var(--accent)]
+    "
+  >
+    ← Retour aux projets
+  </Link>
+</div>
+
+  <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
               Admin Dashboard
             </h1>
 

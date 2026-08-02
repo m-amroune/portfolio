@@ -98,7 +98,7 @@ export default function ContactModal({ inline = false }: ContactModalProps) {
               relative mx-auto w-full max-w-2xl
               rounded-2xl border border-[var(--border)]
               bg-[var(--surface)] text-[var(--foreground)]
-              shadow-[0_18px_50px_rgba(0,0,0,0.18)]
+              shadow-[var(--card-shadow)]
             `
           : `
               relative w-full max-w-lg

@@ -22,6 +22,13 @@ export default function Navbar() {
     useState<SectionId>("accueil");
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const getNavHref = (id: SectionId) => {
+  if (id === "projets" && pathname.startsWith("/projects")) {
+    return "/projects";
+  }
+
+  return `/#${id}`;
+};
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -95,12 +102,13 @@ export default function Navbar() {
           <ul className="flex items-center gap-1 text-base font-medium">
             {navItems.map(({ id, label }) => {
               const isActive =
-                pathname === "/" && activeSection === id;
+  (pathname === "/" && activeSection === id) ||
+  (id === "projets" && pathname.startsWith("/projects"));
 
               return (
                 <li key={id}>
                   <Link
-                    href={`/#${id}`}
+                    href={getNavHref(id)}
                     aria-current={
                       isActive ? "location" : undefined
                     }
@@ -174,13 +182,14 @@ export default function Navbar() {
           "
         >
           {navItems.map(({ id, label }) => {
-            const isActive =
-              pathname === "/" && activeSection === id;
+           const isActive =
+  (pathname === "/" && activeSection === id) ||
+  (id === "projets" && pathname.startsWith("/projects"));
 
             return (
               <li key={id}>
                 <Link
-                  href={`/#${id}`}
+                  href={getNavHref(id)}
                   onClick={() => setMenuOpen(false)}
                   aria-current={
                     isActive ? "location" : undefined

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import ProjectBlock from "../../components/ProjectBlock";
 import { projects } from "./projects-data";
 
@@ -113,6 +114,7 @@ export default function Projets() {
 </section>
 </section>
       </main>
+       <Footer />
     </>
   );
 }
