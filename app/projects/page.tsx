@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 import Navbar from "../../components/Navbar";
 import ProjectBlock from "../../components/ProjectBlock";
-import ContactModal from "../../components/ContactModal";
 import { projects } from "./projects-data";
 
 export default function Projets() {
@@ -13,91 +12,106 @@ export default function Projets() {
   const trainingProjects = projects.filter((p) => p.type !== "personal");
 
   return (
-    <>
-      <Navbar />
-      <ContactModal />
-     <main className="min-h-screen bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] px-4 py-20">
-        <section className="max-w-6xl mx-auto">
-          {/* Page header */}
-          <header className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-              Projets
-            </h1>
+  <>
+    <Navbar />
 
-            <p className="text-sm md:text-base text-slate-300/80 max-w-2xl mx-auto">
-              Sélection de projets personnels ou réalisés dans le cadre de mes
-              parcours de formation.
-            </p>
-          </header>
+    <main className="min-h-screen bg-[var(--background)] px-6 pb-24 pt-32 text-[var(--foreground)]">
+      <section className="mx-auto max-w-6xl">
+        {/* Page header */}
+        <header className="mx-auto mb-20 max-w-3xl text-center">
+          <h1 className="mb-5 text-4xl font-extrabold md:text-5xl">
+            Projets
+          </h1>
 
-          {/* Personal projects section */}
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-10">
-            Projets personnels
-          </h2>
+          <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
+            Sélection de projets personnels ou réalisés dans le cadre de mes
+            parcours de formation.
+          </p>
+        </header>
 
-          {/* Project grid with staggered animations */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.12,
-                },
-              },
-            }}
-            className="grid grid-cols-1 gap-0 mb-20"
-          >
-            {personalProjects.map((project) => (
-              <motion.div
-                className="h-full"
-                key={project.title}
-                variants={{
-                  hidden: { opacity: 0, y: 35 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                <ProjectBlock project={project} />
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Personal projects section */}
+<section aria-labelledby="personal-projects" className="mb-24">
+  <div className="mb-10 flex items-center gap-4">
+    <span className="h-8 w-1 rounded-full bg-[var(--accent)]" />
 
-          {/* Training projects section */}
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-10">
-            Projets de formation
-          </h2>
+    <h2
+      id="personal-projects"
+      className="text-3xl font-bold text-[var(--foreground)] md:text-4xl"
+    >
+      Projets personnels
+    </h2>
+  </div>
 
-          {/* Project grid with staggered animations */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.12,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9 items-stretch"
-          >
-            {trainingProjects.map((project) => (
-              <motion.div
-                className="h-full"
-                key={project.title}
-                variants={{
-                  hidden: { opacity: 0, y: 35 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                <ProjectBlock project={project} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.12,
+        },
+      },
+    }}
+    className="grid gap-8"
+  >
+    {personalProjects.map((project) => (
+      <motion.div
+        key={project.title}
+        variants={{
+          hidden: { opacity: 0, y: 35 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <ProjectBlock project={project} />
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+
+{/* Training projects section */}
+<section aria-labelledby="training-projects">
+  <div className="mb-10 flex items-center gap-4">
+    <span className="h-8 w-1 rounded-full bg-[var(--accent)]" />
+
+    <h2
+      id="training-projects"
+      className="text-3xl font-bold text-[var(--foreground)] md:text-4xl"
+    >
+      Projets de formation
+    </h2>
+  </div>
+
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.12,
+        },
+      },
+    }}
+    className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3"
+  >
+    {trainingProjects.map((project) => (
+      <motion.div
+        key={project.title}
+        className="h-full"
+        variants={{
+          hidden: { opacity: 0, y: 35 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <ProjectBlock project={project} />
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+</section>
       </main>
     </>
   );

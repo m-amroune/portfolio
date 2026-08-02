@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+
 import Link from "next/link";
 
 // Project card used on the Projects page grid
@@ -24,51 +24,67 @@ export default function ProjectBlock({ project }: { project: Project }) {
           ? "/projects/github-resume-generator"
           : null;
 
-  // Alternate the image position for personal projects
   const reverseLayout = project.title === "Job Tracker";
 
   if (path) {
     return (
-      <motion.article
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45 }}
-        className="group border-b border-white/20 py-10 md:py-14"
+      <article
+        className="
+          group overflow-hidden rounded-3xl
+          border border-[var(--border)]
+          bg-[var(--surface)]
+          shadow-[0_18px_50px_rgba(0,0,0,0.22)]
+          transition-shadow duration-500
+          hover:shadow-[0_24px_65px_rgba(37,99,235,0.14)]
+        "
       >
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid lg:grid-cols-2">
           {/* Project preview */}
-          <div className={reverseLayout ? "lg:order-2" : ""}>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/15 bg-white/[0.05] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-blue-400/70 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.45),_0_0_28px_rgba(59,130,246,0.35),_0_20px_50px_rgba(0,0,0,0.3)]">
+          <div
+            className={`p-4 md:p-5 ${
+              reverseLayout ? "lg:order-2" : ""
+            }`}
+          >
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--background)]">
               <Image
                 src={project.image}
                 alt={project.title}
-                width={900}
-                height={560}
-                className="h-full w-full rounded-xl object-contain brightness-90 contrast-105 transition duration-500 group-hover:brightness-100"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="
+                  object-contain
+                  transition-transform duration-700 ease-out
+                  group-hover:scale-[1.025]
+                "
               />
-
-              <div className="pointer-events-none absolute inset-0 bg-[#020617]/5" />
             </div>
           </div>
 
           {/* Project content */}
-          <div className={`text-left ${reverseLayout ? "lg:order-1" : ""}`}>
-            <h3 className="mb-4 text-center text-2xl font-bold text-white md:text-3xl">
+          <div
+            className={`flex flex-col justify-center p-6 md:p-8 ${
+              reverseLayout ? "lg:order-1" : ""
+            }`}
+          >
+            <h3 className="mb-4 text-2xl font-bold text-[var(--foreground)] md:text-3xl">
               {project.title}
             </h3>
 
-            <p className="mb-5 leading-relaxed text-white/70">
+            <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
               {project.description ?? ""}
             </p>
 
             {/* Technology stack */}
             {project.tech && project.tech.length > 0 && (
-             <div className="mb-6 flex flex-wrap justify-center gap-2 lg:justify-start">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs text-white/70"
+                    className="
+                      rounded-full border border-[var(--border)]
+                      bg-[var(--background)] px-3 py-1.5
+                      text-base text-[var(--muted)]
+                    "
                   >
                     {tech}
                   </span>
@@ -77,10 +93,17 @@ export default function ProjectBlock({ project }: { project: Project }) {
             )}
 
             {/* Project actions */}
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <Link
                 href={path}
-                className="rounded-lg border border-white/15 px-4 py-2 text-sm text-white transition hover:bg-white/10"
+                className="
+                  cursor-pointer rounded-xl
+                  border border-[var(--border)]
+                  px-5 py-2.5 text-base font-medium
+                  text-[var(--foreground)] transition
+                  hover:border-[var(--accent)]
+                  hover:bg-white/[0.05]
+                "
               >
                 Présentation
               </Link>
@@ -90,7 +113,12 @@ export default function ProjectBlock({ project }: { project: Project }) {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-500"
+                  className="
+                    cursor-pointer rounded-xl
+                    bg-[var(--accent-strong)] px-5 py-2.5
+                    text-base font-medium text-white
+                    transition hover:brightness-110
+                  "
                 >
                   Démo
                 </a>
@@ -101,7 +129,11 @@ export default function ProjectBlock({ project }: { project: Project }) {
                   href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-2 py-2 text-sm text-white/60 transition hover:text-white"
+                  className="
+                    cursor-pointer px-3 py-2.5
+                    text-base font-medium text-[var(--muted)]
+                    transition hover:text-[var(--accent)]
+                  "
                 >
                   Code
                 </a>
@@ -109,66 +141,59 @@ export default function ProjectBlock({ project }: { project: Project }) {
             </div>
           </div>
         </div>
-      </motion.article>
+      </article>
     );
   }
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
-      className="group flex h-full flex-col"
+    <article
+      className="
+        group flex h-full flex-col overflow-hidden
+        rounded-3xl border border-[var(--border)]
+        bg-[var(--surface)]
+        shadow-[0_16px_45px_rgba(0,0,0,0.2)]
+        transition-shadow duration-500
+        hover:shadow-[0_22px_55px_rgba(37,99,235,0.12)]
+      "
     >
       {/* Project preview */}
-      <div
-        className="
-    relative h-52 overflow-hidden rounded-2xl
-    border border-white/10 bg-white/[0.04] p-2
-    shadow-[0_16px_40px_rgba(0,0,0,0.25)]
-    transition-all duration-300
-    hover:border-blue-400/60
-    hover:shadow-[0_0_24px_rgba(59,130,246,0.25)]
-  "
-      >
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={640}
-          height={400}
-          className="
-      h-full w-full rounded-xl object-contain
-      brightness-90 contrast-105
-      transition duration-500
-      group-hover:scale-[1.01] group-hover:brightness-100
-    "
-        />
-
-        <div className="pointer-events-none absolute inset-0 bg-[#020617]/15" />
+      <div className="p-3">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--background)]">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="
+              object-contain
+              transition-transform duration-700 ease-out
+              group-hover:scale-[1.03]
+            "
+          />
+        </div>
       </div>
 
       {/* Project content */}
-      <div className="flex flex-1 flex-col pt-5 text-center">
-        <h3 className="mb-2 text-xl font-semibold text-white">
+      <div className="flex flex-1 flex-col p-6 pt-4">
+        <h3 className="mb-3 text-2xl font-semibold text-[var(--foreground)]">
           {project.title}
         </h3>
 
-        <p className="mb-4 text-sm leading-relaxed text-white/65">
+        <p className="text-base leading-relaxed text-[var(--muted)]">
           {project.description ?? ""}
         </p>
 
         {/* Technology stack */}
         {project.tech && project.tech.length > 0 && (
-          <div className="mb-5 flex flex-wrap justify-center gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             {project.tech.map((tech) => (
               <span
                 key={tech}
                 className="
-                rounded-full border border-white/10
-                bg-white/[0.05] px-3 py-1
-                text-xs text-white/65
-              "
+                  rounded-full border border-[var(--border)]
+                  bg-[var(--background)] px-3 py-1.5
+                  text-base text-[var(--muted)]
+                "
               >
                 {tech}
               </span>
@@ -177,17 +202,18 @@ export default function ProjectBlock({ project }: { project: Project }) {
         )}
 
         {/* Project actions */}
-        <div className="mt-auto flex items-center justify-center gap-4 border-t border-white/10 pt-4">
+        <div className="mt-auto flex flex-wrap items-center gap-3 pt-7">
           {project.demo && (
             <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
               className="
-              rounded-lg bg-blue-600 px-4 py-2
-              text-sm font-medium text-white
-              transition hover:bg-blue-500
-            "
+                cursor-pointer rounded-xl
+                bg-[var(--accent-strong)] px-5 py-2.5
+                text-base font-medium text-white
+                transition hover:brightness-110
+              "
             >
               Démo
             </a>
@@ -199,15 +225,16 @@ export default function ProjectBlock({ project }: { project: Project }) {
               target="_blank"
               rel="noopener noreferrer"
               className="
-              text-sm text-white/55
-              transition hover:text-white
-            "
+                cursor-pointer px-3 py-2.5
+                text-base font-medium text-[var(--muted)]
+                transition hover:text-[var(--accent)]
+              "
             >
               Code
             </a>
           )}
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }
