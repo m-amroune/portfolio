@@ -1,106 +1,155 @@
-"use client";
-
 import Image from "next/image";
 
+import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar";
-import ContactModal from "../../../components/ContactModal";
 
 export default function AdminDashboardPage() {
   return (
     <>
       <Navbar />
-      <ContactModal />
 
-     <main className="min-h-screen bg-gradient-to-b from-[#17213A] via-[#111827] to-[#17213A] text-white">
-        <div className="mx-auto max-w-5xl space-y-16 px-6 py-20">
-          <section className="space-y-8 border-b border-white/10 pb-14">
-            {/* Project introduction */}
-            <header className="space-y-6 text-center">
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Admin Dashboard
-              </h1>
+      <main className="min-h-screen bg-[var(--background)] pt-32 text-[var(--foreground)]">
+        <article className="mx-auto max-w-6xl px-6 pb-24">
+          {/* Project introduction */}
+          <header className="mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+              Admin Dashboard
+            </h1>
 
-              <p className="mx-auto max-w-3xl text-left leading-relaxed text-slate-300">
-                Application d’administration développée avec Next.js et
-                TypeScript, permettant de gérer les utilisateurs, de suivre les
-                commandes et leurs statuts, avec une authentification et des
-                routes protégées.
-              </p>
+            <p className="mx-auto mt-6 max-w-3xl text-left text-lg leading-8 text-[var(--muted)]">
+              Application d’administration développée avec Next.js et
+              TypeScript, permettant de gérer les utilisateurs, de suivre les
+              commandes et leurs statuts, avec une authentification et des
+              routes protégées.
+            </p>
 
-              <div className="flex flex-wrap justify-center gap-3">
-                <a
-                  href="https://admin-dashboard-m-amroune.vercel.app/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md bg-blue-600/80 px-4 py-2 transition hover:bg-blue-600"
-                >
-                  Démo
-                </a>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                href="https://admin-dashboard-m-amroune.vercel.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  cursor-pointer rounded-xl
+                  bg-[var(--accent-strong)] px-6 py-3
+                  text-base font-medium text-white
+                  transition hover:brightness-110
+                "
+              >
+                Démo
+              </a>
 
-                <a
-                  href="https://github.com/m-amroune/admin-dashboard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md border border-white/20 bg-white/5 px-4 py-2 transition hover:bg-white/10"
-                >
-                  Code
-                </a>
-              </div>
-            </header>
+              <a
+                href="https://github.com/m-amroune/admin-dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  cursor-pointer rounded-xl
+                  border border-[var(--border)]
+                  px-6 py-3 text-base font-medium
+                  text-[var(--foreground)] transition
+                  hover:border-[var(--accent)]
+                  hover:text-[var(--accent)]
+                "
+              >
+                Code
+              </a>
+            </div>
+          </header>
 
-            {/* Project preview */}
-            <div className="group overflow-hidden rounded-2xl border border-blue-300/25 bg-gradient-to-br from-blue-500/20 via-cyan-400/10 to-violet-500/15 p-6 md:p-8 shadow-[0_24px_70px_rgba(37,99,235,0.18)] transition-all duration-500 hover:border-blue-300/45 hover:shadow-[0_28px_85px_rgba(37,99,235,0.3)]">
+          {/* Project preview */}
+          <section className="mt-14">
+            <div
+              className="
+                group overflow-hidden rounded-3xl
+                border border-[var(--border)]
+                bg-[var(--surface)] p-4 md:p-6
+                shadow-[0_20px_60px_rgba(0,0,0,0.24)]
+                transition-shadow duration-500
+                hover:shadow-[0_26px_70px_rgba(37,99,235,0.16)]
+              "
+            >
               <Image
                 src="/projects/admin_dashboard.png"
                 alt="Aperçu de l’Admin Dashboard"
                 width={1200}
                 height={750}
-                className="h-auto w-full scale-[0.96] rounded-xl shadow-2xl transition-transform duration-500 ease-out group-hover:scale-100"
                 priority
+                className="
+                  h-auto w-full rounded-2xl
+                  transition-transform duration-700 ease-out
+                  group-hover:scale-[1.01]
+                "
               />
             </div>
           </section>
 
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Modules</h2>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300 marker:text-blue-500">
-              <li>
-                Authentification avec session par cookie et routes protégées
-              </li>
-              <li>
-                Gestion des utilisateurs : liste, création, suppression et rôle
-                (user / admin)
-              </li>
-              <li>
-                Gestion des commandes : liste, page détail et affichage du
-                statut
-              </li>
-            </ul>
-          </section>
+          {/* Project details */}
+          <section className="mx-auto mt-20 max-w-4xl">
+            <div className="border-t border-[var(--border)] py-10">
+              <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+                Modules
+              </h2>
 
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Fonctionnement</h2>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300 marker:text-blue-500">
-              <li>Layout dashboard partagé avec navigation latérale</li>
-              <li>CRUD utilisateurs</li>
-              <li>Affichage des commandes et de leur statut</li>
-              <li>Interface simple et structurée</li>
-            </ul>
-          </section>
+              <ul className="list-disc space-y-3 pl-6 text-lg leading-8 text-[var(--muted)] marker:text-[var(--accent)]">
+                <li>
+                  Authentification avec session par cookie et routes protégées
+                </li>
+                <li>
+                  Gestion des utilisateurs : liste, création, suppression et
+                  rôle (user / admin)
+                </li>
+                <li>
+                  Gestion des commandes : liste, page détail et affichage du
+                  statut
+                </li>
+              </ul>
+            </div>
 
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Technologies</h2>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300 marker:text-blue-500">
-              <li>Next.js</li>
-              <li>TypeScript</li>
-              <li>Prisma</li>
-              <li>PostgreSQL</li>
-              <li>Tailwind CSS</li>
-              <li>Node.js</li>
-            </ul>
+            <div className="border-t border-[var(--border)] py-10">
+              <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+                Fonctionnement
+              </h2>
+
+              <ul className="list-disc space-y-3 pl-6 text-lg leading-8 text-[var(--muted)] marker:text-[var(--accent)]">
+                <li>Layout dashboard partagé avec navigation latérale</li>
+                <li>CRUD utilisateurs</li>
+                <li>Affichage des commandes et de leur statut</li>
+                <li>Interface simple et structurée</li>
+              </ul>
+            </div>
+
+            <div className="border-y border-[var(--border)] py-10">
+              <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+                Technologies
+              </h2>
+
+              <div className="flex flex-wrap gap-3">
+                {[
+                  "Next.js",
+                  "TypeScript",
+                  "Prisma",
+                  "PostgreSQL",
+                  "Tailwind CSS",
+                  "Node.js",
+                ].map((technology) => (
+                  <span
+                    key={technology}
+                    className="
+                      rounded-full border border-[var(--border)]
+                      bg-[var(--surface)] px-4 py-2
+                      text-base font-medium text-[var(--muted)]
+                    "
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </div>
           </section>
-        </div>
+        </article>
       </main>
+
+      <Footer />
     </>
   );
 }

@@ -1,70 +1,37 @@
-"use client";
+import Image from "next/image";
 
+import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar";
-import ContactModal from "../../../components/ContactModal";
 
 export default function GithubResumeGeneratorPage() {
   return (
     <>
       <Navbar />
-      <ContactModal />
 
-      <main className="min-h-screen bg-[#020617] text-slate-200">
-        <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
-          <header className="space-y-4 pb-10 border-b border-white/10 text-center">
-            <h1 className="text-4xl font-bold tracking-tight">
+      <main className="min-h-screen bg-[var(--background)] pt-32 text-[var(--foreground)]">
+        <article className="mx-auto max-w-6xl px-6 pb-24">
+          {/* Project introduction */}
+          <header className="mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
               GitHub Resume Generator
             </h1>
 
-            <p className="text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="mx-auto mt-6 max-w-3xl text-left text-lg leading-8 text-[var(--muted)]">
               Application générant une page type CV à partir d’un profil GitHub
               public.
             </p>
-          </header>
 
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Modules</h2>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300 marker:text-blue-500">
-              <li>Récupération des données publiques via l’API GitHub</li>
-              <li>Sélection automatique des repositories</li>
-              <li>Calcul des langages les plus utilisés</li>
-              <li>Gestion des erreurs (404, rate limit, échec fetch)</li>
-            </ul>
-          </section>
-
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Fonctionnement</h2>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300 marker:text-blue-500">
-              <li>Récupération jusqu’à 100 repositories publics</li>
-              <li>
-                Priorité aux repositories non fork avec description et étoiles
-              </li>
-              <li>
-                Fallback sur les repositories non fork triés par mise à jour
-              </li>
-              <li>Génération d’un layout imprimable (print PDF)</li>
-            </ul>
-          </section>
-
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Technologies</h2>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300 marker:text-blue-500">
-              <li>Next.js</li>
-              <li>TypeScript</li>
-              <li>React</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </section>
-
-          <section className="space-y-4 p-6 rounded-lg bg-white/5 border border-white/10 shadow-sm">
-            <h2 className="text-xl font-semibold">Liens</h2>
-
-            <div className="flex gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
                 href="https://m-a-github-resume-generator.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-md bg-blue-600/80 backdrop-blur hover:bg-blue-600 transition"
+                className="
+                  cursor-pointer rounded-xl
+                  bg-[var(--accent-strong)] px-6 py-3
+                  text-base font-medium text-white
+                  transition hover:brightness-110
+                "
               >
                 Démo
               </a>
@@ -73,14 +40,106 @@ export default function GithubResumeGeneratorPage() {
                 href="https://github.com/m-amroune/github-resume-generator"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-md border border-white/20 bg-white/5 hover:bg-white/10 transition"
+                className="
+                  cursor-pointer rounded-xl
+                  border border-[var(--border)]
+                  px-6 py-3 text-base font-medium
+                  text-[var(--foreground)] transition
+                  hover:border-[var(--accent)]
+                  hover:text-[var(--accent)]
+                "
               >
                 Code
               </a>
             </div>
+          </header>
+
+          {/* Project preview */}
+          <section className="mt-14">
+            <div
+              className="
+                group overflow-hidden rounded-3xl
+                border border-[var(--border)]
+                bg-[var(--surface)] p-4 md:p-6
+                shadow-[0_20px_60px_rgba(0,0,0,0.24)]
+                transition-shadow duration-500
+                hover:shadow-[0_26px_70px_rgba(37,99,235,0.16)]
+              "
+            >
+              <Image
+                src="/projects/github_resume_generator.png"
+                alt="Aperçu du GitHub Resume Generator"
+                width={1200}
+                height={750}
+                priority
+                className="
+                  h-auto w-full rounded-2xl
+                  transition-transform duration-700 ease-out
+                  group-hover:scale-[1.01]
+                "
+              />
+            </div>
           </section>
-        </div>
+
+          {/* Project details */}
+          <section className="mx-auto mt-20 max-w-4xl">
+            <div className="border-t border-[var(--border)] py-10">
+              <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+                Modules
+              </h2>
+
+              <ul className="list-disc space-y-3 pl-6 text-lg leading-8 text-[var(--muted)] marker:text-[var(--accent)]">
+                <li>Récupération des données publiques via l’API GitHub</li>
+                <li>Sélection automatique des repositories</li>
+                <li>Calcul des langages les plus utilisés</li>
+                <li>Gestion des erreurs (404, rate limit, échec fetch)</li>
+              </ul>
+            </div>
+
+            <div className="border-t border-[var(--border)] py-10">
+              <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+                Fonctionnement
+              </h2>
+
+              <ul className="list-disc space-y-3 pl-6 text-lg leading-8 text-[var(--muted)] marker:text-[var(--accent)]">
+                <li>Récupération jusqu’à 100 repositories publics</li>
+                <li>
+                  Priorité aux repositories non fork avec description et étoiles
+                </li>
+                <li>
+                  Fallback sur les repositories non fork triés par mise à jour
+                </li>
+                <li>Génération d’un layout imprimable (print PDF)</li>
+              </ul>
+            </div>
+
+            <div className="border-y border-[var(--border)] py-10">
+              <h2 className="mb-6 text-2xl font-bold md:text-3xl">
+                Technologies
+              </h2>
+
+              <div className="flex flex-wrap gap-3">
+                {["Next.js", "TypeScript", "React", "Tailwind CSS"].map(
+                  (technology) => (
+                    <span
+                      key={technology}
+                      className="
+                        rounded-full border border-[var(--border)]
+                        bg-[var(--surface)] px-4 py-2
+                        text-base font-medium text-[var(--muted)]
+                      "
+                    >
+                      {technology}
+                    </span>
+                  ),
+                )}
+              </div>
+            </div>
+          </section>
+        </article>
       </main>
+
+      <Footer />
     </>
   );
 }
