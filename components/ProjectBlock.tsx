@@ -33,9 +33,9 @@ export default function ProjectBlock({ project }: { project: Project }) {
           group overflow-hidden rounded-3xl
           border border-[var(--border)]
           bg-[var(--surface)]
-          shadow-[0_18px_50px_rgba(0,0,0,0.22)]
-          transition-shadow duration-500
-          hover:shadow-[0_24px_65px_rgba(37,99,235,0.14)]
+          shadow-[var(--card-shadow)]
+transition-shadow duration-500
+hover:shadow-[var(--card-shadow-hover)]
         "
       >
         <div className="grid lg:grid-cols-2">
@@ -151,9 +151,9 @@ export default function ProjectBlock({ project }: { project: Project }) {
         group flex h-full flex-col overflow-hidden
         rounded-3xl border border-[var(--border)]
         bg-[var(--surface)]
-        shadow-[0_16px_45px_rgba(0,0,0,0.2)]
-        transition-shadow duration-500
-        hover:shadow-[0_22px_55px_rgba(37,99,235,0.12)]
+        shadow-[var(--card-shadow)]
+transition-shadow duration-500
+hover:shadow-[var(--card-shadow-hover)]
       "
     >
       {/* Project preview */}

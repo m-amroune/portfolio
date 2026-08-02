@@ -34,9 +34,9 @@ export default function HomeProjectCard({
         group flex h-full flex-col overflow-hidden
         rounded-3xl border border-[var(--border)]
         bg-[var(--surface)]
-        shadow-[0_18px_50px_rgba(0,0,0,0.24)]
-      transition duration-500
-hover:shadow-[0_24px_70px_rgba(37,99,235,0.18)]
+        shadow-[var(--card-shadow)]
+       transition duration-500
+       hover:shadow-[var(--card-shadow-hover)]
        ${featured ? "md:col-span-2 md:mx-auto md:w-full md:max-w-4xl" : ""}
       `}
     >
@@ -124,8 +124,8 @@ hover:shadow-[0_24px_70px_rgba(37,99,235,0.18)]
         </h3>
 
         <p className="w-full max-w-3xl text-left text-base leading-relaxed text-[var(--muted)]">
-  {description}
-</p>
+          {description}
+        </p>
 
         {/* Technology stack */}
         {tech && tech.length > 0 && (
@@ -149,7 +149,7 @@ hover:shadow-[0_24px_70px_rgba(37,99,235,0.18)]
 
         {/* Mobile and tablet actions */}
         {/* Project actions */}
-<div className="mt-6 flex flex-wrap justify-center gap-3">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           {path && (
             <Link
               href={path}

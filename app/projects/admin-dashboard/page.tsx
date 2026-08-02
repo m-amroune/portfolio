@@ -63,9 +63,9 @@ export default function AdminDashboardPage() {
                 group overflow-hidden rounded-3xl
                 border border-[var(--border)]
                 bg-[var(--surface)] p-4 md:p-6
-                shadow-[0_20px_60px_rgba(0,0,0,0.24)]
+                shadow-[var(--card-shadow)]
                 transition-shadow duration-500
-                hover:shadow-[0_26px_70px_rgba(37,99,235,0.16)]
+                hover:shadow-[var(--card-shadow-hover)]
               "
             >
               <Image
