@@ -38,11 +38,11 @@ transition-shadow duration-500
 hover:shadow-[var(--card-shadow-hover)]
         "
       >
-        <div className="grid lg:grid-cols-2">
+        <div className="grid md:grid-cols-2">
           {/* Project preview */}
           <div
             className={`p-4 md:p-5 ${
-              reverseLayout ? "lg:order-2" : ""
+              reverseLayout ? "md:order-2" : ""
             }`}
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--background)]">
@@ -63,7 +63,7 @@ hover:shadow-[var(--card-shadow-hover)]
           {/* Project content */}
           <div
             className={`flex flex-col justify-center p-6 md:p-8 ${
-              reverseLayout ? "lg:order-1" : ""
+              reverseLayout ? "md:order-1" : ""
             }`}
           >
             <h3 className="mb-4 text-2xl font-bold text-[var(--foreground)] md:text-3xl">

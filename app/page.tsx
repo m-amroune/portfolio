@@ -164,15 +164,15 @@ export default function Home() {
             </h2>
 
             <div className="mx-auto max-w-2xl space-y-6">
-  <p className="text-justify text-lg leading-8 text-[var(--muted)]">
+  <p className="text-left text-lg md:text-justify leading-8 text-[var(--muted)]">
     {aboutContent.intro}
   </p>
 
-  <p className="text-justify text-lg leading-8 text-[var(--muted)]">
+  <p className="text-left text-lg md:text-justify leading-8 text-[var(--muted)]">
     {aboutContent.openClassrooms}
   </p>
 
-  <p className="text-justify text-lg leading-8 text-[var(--muted)]">
+  <p className="text-left text-lg md:text-justify leading-8 text-[var(--muted)]">
     {aboutContent.freeCodeCamp}
   </p>
 </div>
