@@ -2,9 +2,9 @@
 
 Personal portfolio built with Next.js, React and TypeScript.
 
-This project presents my developer profile, technical skills, and a selection of personal and training projects.
+It presents my front-end profile, technical skills, personal applications and training projects.
 
-Live site: https://m-amroune-porfolio.vercel.app/
+**Live site:** https://m-amroune-porfolio.vercel.app/
 
 <p align="center">
   <img src="./assets/portfolio-preview.png" alt="Portfolio preview" width="900" />
@@ -12,45 +12,21 @@ Live site: https://m-amroune-porfolio.vercel.app/
 
 ---
 
-## About the Project
+## About
 
-This portfolio is designed to present:
+The portfolio includes my main personal applications, projects completed through OpenClassrooms and FreeCodeCamp, and detailed presentations of selected projects.
 
-- my front-end developer profile
-- personal web applications
-- training projects from OpenClassrooms and FreeCodeCamp
-- technical stack and project links
-- a contact form connected to an email API
-
-The interface is built with a component-based structure and a responsive layout.
+The interface is responsive and includes light and dark themes.
 
 ---
 
-## Featured Projects
+## Personal Projects
 
-### Personal Applications
+- **Admin Dashboard** - administration interface with authentication, user management and order tracking
+- **Job Tracker** - application for tracking job applications and statuses
+- **GitHub Resume Generator** - resume-style page generated from a public GitHub profile
 
-- **Admin Dashboard**: administration interface with authentication, user management, orders and CRUD operations
-- **Job Tracker**: application to track job applications, statuses and related information
-- **GitHub Resume Generator**: application generating a resume-style page from a public GitHub profile
-
-### Training Projects
-
-Projects developed through OpenClassrooms and FreeCodeCamp covering:
-
-- responsive front-end integration
-- React components and state management
-- JavaScript logic and data handling
-- REST APIs and microservices with Node.js and Express
-- databases and data modelling with MongoDB, PostgreSQL and SQL
-- algorithms and problem solving
-
-Each project page can include:
-
-- project description
-- technologies used
-- live demo
-- source code link
+Training projects are also available on the dedicated projects page.
 
 ---
 
@@ -68,14 +44,13 @@ Each project page can include:
 
 ## Features
 
-- Responsive layout
-- Home page with profile, skills and selected projects
+- Responsive one-page homepage
+- Light and dark themes
+- Active section navigation
+- Personal project presentations
 - Dedicated projects page
-- Individual presentation pages for personal projects
-- Reusable React components
-- Contact modal
-- Contact form email sending with Resend
-- API route for contact form submission
+- Contact form with email sending
+- Responsive layouts for desktop, tablet and mobile
 
 ---
 
@@ -86,4 +61,3 @@ git clone https://github.com/m-amroune/portfolio.git
 cd portfolio
 npm install
 npm run dev
-```
