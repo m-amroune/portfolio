@@ -18,15 +18,7 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  // Hero text slides
-  const aboutContent = {
-    intro:
-      "J’approfondis ma pratique du développement web en travaillant sur des projets personnels, en parallèle de certifications en ligne. Mon axe principal est React, Next.js et TypeScript, avec un travail complémentaire sur le back-end et les bases de données.",
-    openClassrooms:
-      "J’ai suivi un parcours de formation développeur d'applications Javascript React chez OpenClassrooms, basé sur la réalisation de projets complets. J’y ai travaillé l’intégration responsive, React, les appels API et l’organisation du code.",
-    freeCodeCamp:
-      "Avec FreeCodeCamp, j’ai complété ma pratique sur JavaScript, React, le back-end et les bases de données. Ce parcours m’a aidé à relier le front-end à la logique serveur et à la gestion des données.",
-  };
+
 
   // Projects displayed on the home page
   const projects = [
@@ -147,95 +139,124 @@ export default function Home() {
   </div>
 </section>
 
-        {/* ===================== ABOUT ===================== */}
-        <section
-          id="a-propos"
-          className="scroll-mt-20 border-t border-[var(--border)] bg-[var(--surface)] px-6 py-16 md:py-24"
-        >
-          <motion.div
-  className="mx-auto max-w-6xl"
-  initial={{ opacity: 0, y: 18 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.15 }}
-  transition={{ duration: 2, ease: "easeOut" }}
+ {/* ===================== ABOUT ===================== */}
+<section
+  id="a-propos"
+  className="scroll-mt-20 border-t border-[var(--border)] bg-[var(--surface)] px-6 py-16 md:py-24"
 >
-            <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
-              À propos
-            </h2>
+  <motion.div
+    className="mx-auto max-w-6xl"
+    initial={{ opacity: 0, y: 18 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.15 }}
+    transition={{ duration: 2, ease: "easeOut" }}
+  >
+    <h2 className="mb-10 text-center text-3xl font-bold md:text-4xl">
+      À propos
+    </h2>
 
-            <div className="mx-auto max-w-2xl space-y-6">
-  <p className="text-left text-lg md:text-justify leading-8 text-[var(--muted)]">
-    {aboutContent.intro}
-  </p>
+    <div className="mx-auto max-w-[680px] space-y-6">
+      <p className="text-justify text-lg leading-8 tracking-[0.01em] text-[var(--muted)]">
+        {"Mon parcours dans le web s'est d'abord construit autour de la "}
+        <span className="font-[550]">
+          rédaction de contenu
+        </span>
+        {", avant de s'orienter progressivement vers le développement."}
+      </p>
 
-  <p className="text-left text-lg md:text-justify leading-8 text-[var(--muted)]">
-    {aboutContent.openClassrooms}
-  </p>
+      <p className="text-justify text-lg leading-8 tracking-[0.01em] text-[var(--muted)]">
+        {
+          "J'approfondis ma pratique en travaillant sur des projets personnels, en parallèle de certifications en ligne. Mon axe principal est "
+        }
+        <span className="font-[550]">
+          React, Next.js et TypeScript
+        </span>
+        {
+          ", avec un travail complémentaire sur le back-end et les bases de données."
+        }
+      </p>
 
-  <p className="text-left text-lg md:text-justify leading-8 text-[var(--muted)]">
-    {aboutContent.freeCodeCamp}
-  </p>
-</div>
+      <p className="text-justify text-lg leading-8 tracking-[0.01em] text-[var(--muted)]">
+        {
+          "J'ai suivi une formation de développeur d'applications JavaScript React chez "
+        }
+        <span className="font-[550]">
+          OpenClassrooms
+        </span>
+        {
+          ", basée sur la réalisation de projets complets. J'y ai travaillé l'intégration responsive, React, les appels API et l'organisation du code."
+        }
+      </p>
 
-            {/* Skills */}
-            <div className="mt-16 border-t border-[var(--border)] pt-16">
-  <div className="space-y-4 text-center">
-    <h3 className="text-3xl font-bold md:text-4xl">Compétences</h3>
+      <p className="text-justify text-lg leading-8 tracking-[0.01em] text-[var(--muted)]">
+        {"Avec "}
+        <span className="font-[550]">
+          FreeCodeCamp
+        </span>
+        {
+          ", j'ai complété ma pratique sur JavaScript, React, le back-end et les bases de données. Ce parcours m'a aidé à relier le front-end à la logique serveur et à la gestion des données."
+        }
+      </p>
+    </div>
 
-    <p className="mx-auto max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
-      Conception d’interfaces, intégration, logique front-end, APIs et
-      bases de données.
-    </p>
-  </div>
+    {/* Skills */}
+    <div className="mt-16 border-t border-[var(--border)] pt-16">
+      <div className="space-y-4 text-center">
+        <h3 className="text-3xl font-bold md:text-4xl">
+          Compétences
+        </h3>
 
-              <motion.div
-  className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6"
-  initial={{ opacity: 0, y: 24 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.15 }}
-  transition={{ duration: 1.2, ease: "easeOut" }}
->
-                <SkillCard
-                  className="lg:col-span-2"
-                  icon={<Code2 size={28} className="text-blue-400" />}
-                  title="Langages"
-                  text="JavaScript, TypeScript, Python, HTML, CSS, SASS, Tailwind, SQL"
-                />
+        <p className="mx-auto max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          Conception d’interfaces, intégration, logique front-end, APIs et
+          bases de données.
+        </p>
+      </div>
 
-                <SkillCard
-                  className="lg:col-span-2"
-                  icon={<Layers size={28} className="text-indigo-400" />}
-                  title="Stack technique"
-                  text="React, Next.js, Redux, Node.js, Express"
-                />
+      <motion.div
+        className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+       <SkillCard
+  className="lg:col-span-2"
+  icon={<Code2 size={28} className="text-blue-400" />}
+  title="Langages"
+  text="JavaScript, TypeScript, Python, HTML, CSS, SQL"
+/>
 
-                <SkillCard
-                  className="lg:col-span-2"
-                  icon={<Database size={28} className="text-green-400" />}
-                  title="Bases de données"
-                  text="MongoDB (Atlas), PostgreSQL"
-                />
+<SkillCard
+  className="lg:col-span-2"
+  icon={<Layers size={28} className="text-indigo-400" />}
+  title="Front-end"
+  text="React, Next.js, Redux, Tailwind CSS, TanStack Query, TanStack Table"
+/>
 
-                <SkillCard
-                  className="lg:col-span-2 lg:col-start-2"
-                  icon={<Wrench size={28} className="text-orange-400" />}
-                  title="Outils"
-                  text="Git, GitHub, Vite, Docker, Replit, Linux, Bash"
-                />
+<SkillCard
+  className="lg:col-span-2"
+  icon={<Database size={28} className="text-green-400" />}
+  title="Back-end et données"
+  text="Node.js, Express, Prisma, PostgreSQL, MongoDB, Supabase"
+/>
 
-                <SkillCard
-                  className="lg:col-span-2"
-                  icon={
-                    <MonitorSmartphone size={28} className="text-purple-400" />
-                  }
-                  title="UX / UI"
-                  text="Figma, Responsive Design"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
-        </section>
+<SkillCard
+  className="lg:col-span-2 lg:col-start-2"
+  icon={<Wrench size={28} className="text-orange-400" />}
+  title="Tests et outils"
+  text="Jest, React Testing Library, Git, GitHub, Docker, Vercel"
+/>
 
+<SkillCard
+  className="lg:col-span-2"
+  icon={<MonitorSmartphone size={28} className="text-purple-400" />}
+  title="UX / UI"
+  text="Figma, Responsive Design"
+/>
+      </motion.div>
+    </div>
+  </motion.div>
+</section>
         {/* ===================== PROJECTS ===================== */}
         <section
           id="projets"
