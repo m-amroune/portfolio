@@ -20,6 +20,16 @@ export const projects = [
     type: "personal",
   },
   {
+  title: "Bordeaux Mobility",
+  demo: "https://bordeaux-mobility-m-a.vercel.app/",
+  repo: "https://github.com/m-amroune/bordeaux-mobility",
+  image: "/projects/bordeaux-mobility-views.png",
+  description:
+    "Application Angular permettant de consulter en temps réel la disponibilité des stations vélo de Bordeaux Métropole.",
+  tech: ["Angular", "TypeScript", "RxJS", "Vitest"],
+  type: "personal",
+},
+  {
     title: "GitHub Resume Generator",
     demo: "https://m-a-github-resume-generator.vercel.app/",
     repo: "https://github.com/m-amroune/github-resume-generator",

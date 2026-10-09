@@ -16,14 +16,16 @@ It presents my front-end profile, technical skills, personal applications and tr
 
 The portfolio includes my main personal applications, projects completed through OpenClassrooms and FreeCodeCamp, and detailed presentations of selected projects.
 
-The interface is responsive and includes light and dark themes.
 
 ---
+
+
 
 ## Personal Projects
 
 - **Admin Dashboard** - administration interface with authentication, user management and order tracking
-- **Job Tracker** - application for tracking job applications and statuses
+- **Job Tracker** - application for tracking job applications, statuses and follow-ups
+- **Bordeaux Mobility** - Angular application for exploring real-time bicycle station availability in Bordeaux Métropole
 - **GitHub Resume Generator** - resume-style page generated from a public GitHub profile
 
 Training projects are also available on the dedicated projects page.

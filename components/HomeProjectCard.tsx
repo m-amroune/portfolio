@@ -19,11 +19,13 @@ export default function HomeProjectCard({
   tech,
   featured = false,
 }: HomeProjectCardProps) {
-  const path =
-    title === "Admin Dashboard"
-      ? "/projects/admin-dashboard"
-      : title === "Job Tracker"
-        ? "/projects/job-tracker"
+ const path =
+  title === "Admin Dashboard"
+    ? "/projects/admin-dashboard"
+    : title === "Job Tracker"
+      ? "/projects/job-tracker"
+      : title === "Bordeaux Mobility"
+        ? "/projects/bordeaux-mobility"
         : title === "GitHub Resume Generator"
           ? "/projects/github-resume-generator"
           : null;

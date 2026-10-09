@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Moustapha Amroune — Développeur Front-End React & Next.js",
+  title: "Moustapha Amroune | Développeur web",
   description:
-    "Portfolio présentant des projets réalisés dans le cadre de parcours de formation",
+    "Portfolio de Moustapha Amroune, développeur web travaillant principalement avec React, Angular, Next.js et TypeScript, avec une pratique complémentaire du back-end et des bases de données.",
 };
 
 export default function RootLayout({
